@@ -1,7 +1,7 @@
 # myhelm_chart
 A github chart repository demo
 
-## helm的chart仓库地址为：https://yupengzhangl.github.io/myhelm-chart/
+## helm的chart仓库地址为：https://yupengzhangl.github.io/myhelm_chart/
 
 ## 本Chart仓库的使用方法
 
