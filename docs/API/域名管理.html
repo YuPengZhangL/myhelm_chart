@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>域名管理</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.f15f75cf.js" as="script"><link rel="preload" href="/assets/js/2.9c4860b2.js" as="script"><link rel="preload" href="/assets/js/12.661aac16.js" as="script"><link rel="prefetch" href="/assets/js/10.34247447.js"><link rel="prefetch" href="/assets/js/11.5c2f1742.js"><link rel="prefetch" href="/assets/js/13.31e0e1ab.js"><link rel="prefetch" href="/assets/js/14.6d58bf2c.js"><link rel="prefetch" href="/assets/js/15.a57eff10.js"><link rel="prefetch" href="/assets/js/16.956d9f8e.js"><link rel="prefetch" href="/assets/js/17.78b7aa1f.js"><link rel="prefetch" href="/assets/js/18.6556e82b.js"><link rel="prefetch" href="/assets/js/19.46482fe5.js"><link rel="prefetch" href="/assets/js/20.88f160e6.js"><link rel="prefetch" href="/assets/js/21.3976a019.js"><link rel="prefetch" href="/assets/js/22.56a27f24.js"><link rel="prefetch" href="/assets/js/23.877cdb78.js"><link rel="prefetch" href="/assets/js/3.f5da0df8.js"><link rel="prefetch" href="/assets/js/4.e7c996f5.js"><link rel="prefetch" href="/assets/js/5.6eff8140.js"><link rel="prefetch" href="/assets/js/6.17d5dd20.js"><link rel="prefetch" href="/assets/js/7.04c5fbb0.js"><link rel="prefetch" href="/assets/js/8.9053e37f.js"><link rel="prefetch" href="/assets/js/9.7582fe86.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="域名管理"><a href="#域名管理" class="header-anchor">#</a> 域名管理</h1> <h2 id="域名信息"><a href="#域名信息" class="header-anchor">#</a> 域名信息</h2> <h3 id="路由"><a href="#路由" class="header-anchor">#</a> 路由</h3> <p>/domain/info/</p> <h4 id="获取域名信息列表内容"><a href="#获取域名信息列表内容" class="header-anchor">#</a> 获取域名信息列表内容</h4> <p>查询方法：get</p> <p>响应内容</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增字段</td></tr> <tr><td>domain</td> <td>string</td> <td>域名</td></tr> <tr><td>provider</td> <td>int</td> <td>运营商，0：阿里云万维网，1：aws-route53，2：非高图域名</td></tr> <tr><td>tag</td> <td>list</td> <td>标签列表[kg, test]</td></tr> <tr><td>record</td> <td>int</td> <td>记录数，前端不可修改</td></tr> <tr><td>version</td> <td>string</td> <td>版本</td></tr> <tr><td>buytime</td> <td>date</td> <td>购买时间，格式yyyy-mm-dd</td></tr> <tr><td>expired</td> <td>date</td> <td>到期时间，格式yyyy-mm-dd</td></tr> <tr><td>updatetime</td> <td>date</td> <td>域名信息更新时间，格式yyyy-mm-dd HH:MM:SS，如&quot;2021-07-01 02:44:09&quot;，前端不可修改</td></tr> <tr><td>status</td> <td>int</td> <td>域名信息状态，0(正常), 1(异常)</td></tr> <tr><td>comment</td> <td>string</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;tag&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;kg&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;hello&quot;</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;goatgame.com&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;provider&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;阿里云&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;record&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;免费&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;buytime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-07-14&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;expired&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-07-14&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;updatetime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-07-14T06:05:57.666625Z&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;status&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> null
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h4 id="创建域名信息"><a href="#创建域名信息" class="header-anchor">#</a> 创建域名信息</h4> <p>请求方法：post</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>domain</td> <td>string</td> <td>是</td> <td>域名</td></tr> <tr><td>provider</td> <td>int</td> <td>是</td> <td>运营商</td></tr> <tr><td>version</td> <td>string</td> <td>是</td> <td>版本</td></tr> <tr><td>buytime</td> <td>date</td> <td>是</td> <td>购买时间，格式yyyy-mm-dd</td></tr> <tr><td>expired</td> <td>date</td> <td>是</td> <td>到期时间，格式yyyy-mm-dd</td></tr> <tr><td>status</td> <td>int</td> <td>是</td> <td>域名信息状态，0(正常), 1(异常)</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;goatgame.net&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;provider&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;阿里云&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;免费&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;buytime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-06-29&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;expired&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2023-06-29&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;status&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="修改域名信息"><a href="#修改域名信息" class="header-anchor">#</a> 修改域名信息</h4> <p>请求方法：put</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>是</td> <td>域名信息id，服务端分配</td></tr></tbody></table> <div class="language- extra-class"><pre class="language-text"><code>{   
+	&quot;id&quot;: 1
+}
+</code></pre></div><h4 id="删除域名信息"><a href="#删除域名信息" class="header-anchor">#</a> 删除域名信息</h4> <p>请求方法：delete</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>备注</th></tr></thead> <tbody><tr><td>data</td> <td>list</td> <td>是</td> <td>待删除列表[id1, id2]</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+  <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>id1<span class="token punctuation">,</span> id2<span class="token punctuation">]</span> <span class="token comment">#单个/批量删除</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="刷新域名信息"><a href="#刷新域名信息" class="header-anchor">#</a> 刷新域名信息</h3> <h4 id="路由-2"><a href="#路由-2" class="header-anchor">#</a> 路由</h4> <p>/domain/freshinfo/</p> <p>请求方法：post</p> <h2 id="域名解析"><a href="#域名解析" class="header-anchor">#</a> 域名解析</h2> <h3 id="路由-3"><a href="#路由-3" class="header-anchor">#</a> 路由</h3> <p>/domain/record/</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment">#记录类型含义 rdtype</span>
+<span class="token punctuation">(</span><span class="token string">&quot;AAAA&quot;</span><span class="token punctuation">,</span>  <span class="token string">&quot;AAAA记录&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token string">&quot;A&quot;</span><span class="token punctuation">,</span>  <span class="token string">&quot;A记录&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token string">&quot;CAA&quot;</span><span class="token punctuation">,</span>  CAA记录&quot;<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token string">&quot;CNAME&quot;</span><span class="token punctuation">,</span>  CNAME记录&quot;<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token string">&quot;MX&quot;</span><span class="token punctuation">,</span> MX记录&quot;<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token string">&quot;NS&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;NS记录&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token string">&quot;SRV&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;SRV记录&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token string">&quot;TXT&quot;</span><span class="token punctuation">,</span> TXT记录&quot;<span class="token punctuation">)</span>
+
+<span class="token comment"># 域名云厂商含义</span>
+ <span class="token number">0</span>：阿里云<span class="token operator">-</span>万维网
+ <span class="token number">1</span>：AWS<span class="token operator">-</span>Route53
+
+ <span class="token comment">#阿里云</span>
+ <span class="token comment">#云解析状态 status</span>
+ <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;启动&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">&quot;暂停&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+ <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">&quot;未解析&quot;</span><span class="token punctuation">)</span><span class="token comment"># 默认值</span>
+ 
+ <span class="token comment">#aws route53</span>
+ <span class="token comment">#路由策略含义 route</span>
+ <span class="token number">0</span>  <span class="token comment"># aws简单路由</span>
+ <span class="token number">1</span>  <span class="token comment"># aws加权路由</span>
+ <span class="token number">2</span>  <span class="token comment"># aws多值应答路由</span>
+ <span class="token number">3</span>  <span class="token comment"># aws延迟路由</span>
+ <span class="token number">4</span>  <span class="token comment"># aws地理位置路由</span>
+ <span class="token number">5</span>  <span class="token comment"># aws故障转移路由</span>
+
+</code></pre></div><h4 id="获取域名解析列表内容"><a href="#获取域名解析列表内容" class="header-anchor">#</a> 获取域名解析列表内容</h4> <p>查询方法：get</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>flag</td> <td>int</td> <td>否</td> <td>域名云厂商含义，默认为0</td></tr></tbody></table> <p>响应内容</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>domains</td> <td>list</td> <td>指定域名云厂商具有的域名列表信息</td></tr> <tr><td>records</td> <td>list</td> <td>云解析记录列表</td></tr> <tr><td>isp</td> <td>list</td> <td>阿里云万维网特有，解析线路(ISP)</td></tr></tbody></table> <h5 id="阿里云万维网"><a href="#阿里云万维网" class="header-anchor">#</a> 阿里云万维网</h5> <p>响应内容</p> <h6 id="解析记录"><a href="#解析记录" class="header-anchor">#</a> 解析记录</h6> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增字段</td></tr> <tr><td>domain</td> <td>int</td> <td>域名id</td></tr> <tr><td>record</td> <td>string</td> <td>主机记录</td></tr> <tr><td>isp</td> <td>string</td> <td>解析路线ISP</td></tr> <tr><td>rdvalue</td> <td>string</td> <td>记录值</td></tr> <tr><td>rdtype</td> <td>string</td> <td>记录类型</td></tr> <tr><td>rdttl</td> <td>int</td> <td>ttl秒数，整除时显示为对应单位(天/小时/分钟/)，否则默认显示为秒</td></tr> <tr><td>tag</td> <td>list</td> <td>标签列表[kg, test]</td></tr> <tr><td>status</td> <td>int</td> <td>解析记录状态，前端不可修改</td></tr> <tr><td>comment</td> <td>string</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment">#阿里云</span>
+<span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;domains&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">22</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;goatgamesmail.com&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;provider&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;records&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;tag&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                    <span class="token string">&quot;&quot;</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;record&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;goatgames.app.&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;rdtype&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;SOA&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;rdvalue&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;ns-1965.awsdns-53.co.uk. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;rdttl&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;900&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;route&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;routevalue&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;routeidentifier&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;\&quot;\&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span> <span class="token number">33</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;isp&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;LineDisplayName&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;默认&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;LineCode&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;default&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;LineName&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;默认&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><h6 id="isp"><a href="#isp" class="header-anchor">#</a> ISP</h6> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>LineDisplayName</td> <td>string</td> <td>ISP路线，只显示第一级，如中国联通_云南显示为中国联通</td></tr> <tr><td>LineCode</td> <td>string</td> <td>IPS 代码标识</td></tr> <tr><td>LineName</td> <td>string</td> <td>ISP地区归类</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">'LineDisplayName'</span><span class="token punctuation">:</span> <span class="token string">'默认'</span><span class="token punctuation">,</span> <span class="token string">'LineCode'</span><span class="token punctuation">:</span> <span class="token string">'default'</span><span class="token punctuation">,</span> <span class="token string">'LineName'</span><span class="token punctuation">:</span> <span class="token string">'默认'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">'LineDisplayName'</span><span class="token punctuation">:</span> <span class="token string">'中国联通_云南'</span><span class="token punctuation">,</span> <span class="token string">'LineCode'</span><span class="token punctuation">:</span> <span class="token string">'cn_unicom_yunnan'</span><span class="token punctuation">,</span> <span class="token string">'LineName'</span><span class="token punctuation">:</span> <span class="token string">'云南'</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre></div><h5 id="aws-route53云解析"><a href="#aws-route53云解析" class="header-anchor">#</a> aws route53云解析</h5> <p>响应内容</p> <h6 id="解析记录-2"><a href="#解析记录-2" class="header-anchor">#</a> 解析记录</h6> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增字段</td></tr> <tr><td>domain</td> <td>int</td> <td>域名id</td></tr> <tr><td>record</td> <td>string</td> <td>主机记录</td></tr> <tr><td>rdtype</td> <td>string</td> <td>记录类型</td></tr> <tr><td>rdvalue</td> <td>string</td> <td>记录值</td></tr> <tr><td>route</td> <td>int</td> <td>路由策略，请查看aws route53路由可选值</td></tr> <tr><td>routevalue</td> <td>string</td> <td>路由策略额外内容</td></tr> <tr><td>routeidentifier</td> <td>string</td> <td>路由策略记录ID</td></tr> <tr><td>rdttl</td> <td>int</td> <td>ttl秒数，整除时显示为对应单位(天/小时/分钟/)，否则默认显示为秒</td></tr> <tr><td>tag</td> <td>list</td> <td>标签列表[kg, test]</td></tr> <tr><td>comment</td> <td>string</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment">#aws route53</span>
+<span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;domains&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">33</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;goatgames.app.&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;provider&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;records&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">15</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;tag&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                    <span class="token string">&quot;&quot;</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;record&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;alias-weight.goatgames.app.&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;rdtype&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;A&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;rdvalue&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;{'HostedZoneId': 'Z368ELLRRE2KJ0', 'DNSName': 'dualstack.kg-cdn-dynamic-1499863476.us-west-1.elb.amazonaws.com.', 'EvaluateTargetHealth': True}&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;rdttl&quot;</span><span class="token punctuation">:</span> <span class="token number">60</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;route&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;routevalue&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;100&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;routeidentifier&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;alias-weight&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span> <span class="token number">33</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">16</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;tag&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                    <span class="token string">&quot;&quot;</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;record&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;auc.goatgames.app.&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;rdtype&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;A&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;rdvalue&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;13.52.89.108&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;rdttl&quot;</span><span class="token punctuation">:</span> <span class="token number">60</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;route&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;routevalue&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;routeidentifier&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span> <span class="token number">33</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="创建域名解析信息"><a href="#创建域名解析信息" class="header-anchor">#</a> 创建域名解析信息</h4> <p>请求方法：post</p> <p>请求参数</p> <h5 id="阿里云万维网-2"><a href="#阿里云万维网-2" class="header-anchor">#</a> 阿里云万维网</h5> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>domain</td> <td>int</td> <td>是</td> <td>域名id</td></tr> <tr><td>record</td> <td>string</td> <td>是</td> <td>主机记录</td></tr> <tr><td>isp</td> <td>string</td> <td>是</td> <td>解析路线ISP</td></tr> <tr><td>rdvalue</td> <td>string</td> <td>是</td> <td>记录值</td></tr> <tr><td>rdtype</td> <td>string</td> <td>是</td> <td>记录类型</td></tr> <tr><td>rdttl</td> <td>int</td> <td>是</td> <td>ttl秒数，整除时显示为对应单位(天/小时/分钟/)，否则默认显示为秒</td></tr> <tr><td>tag</td> <td>list</td> <td>否</td> <td>标签列表[kg, test]</td></tr> <tr><td>status</td> <td>int</td> <td>否</td> <td>解析记录状态，前端不可修改</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span><span class="token number">5</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;record&quot;</span><span class="token punctuation">:</span><span class="token string">&quot;who11&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;isp&quot;</span><span class="token punctuation">:</span><span class="token string">&quot;default&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;rdvalue&quot;</span><span class="token punctuation">:</span><span class="token string">&quot;1.1.1.2&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;rdtype&quot;</span><span class="token punctuation">:</span><span class="token string">&quot;A&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;rdttl&quot;</span><span class="token punctuation">:</span><span class="token number">90</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h5 id="aws-route53"><a href="#aws-route53" class="header-anchor">#</a> aws route53</h5> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>domain</td> <td>int</td> <td>是</td> <td>域名id</td></tr> <tr><td>record</td> <td>string</td> <td>是</td> <td>主机记录</td></tr> <tr><td>rdvalue</td> <td>string</td> <td>是</td> <td>记录值</td></tr> <tr><td>rdtype</td> <td>string</td> <td>是</td> <td>记录类型</td></tr> <tr><td>rdttl</td> <td>int</td> <td>是</td> <td>ttl秒数，整除时显示为对应单位(天/小时/分钟/)，否则默认显示为秒</td></tr> <tr><td>route</td> <td>int</td> <td>是</td> <td>路由策略，请查看aws route53路由可选值</td></tr> <tr><td>routevalue</td> <td>string</td> <td>否/是</td> <td>路由策略额外内容，route非零时，必须有值</td></tr> <tr><td>routeidentifier</td> <td>string</td> <td>否/是</td> <td>路由策略记录ID，route非零时，必须有值</td></tr> <tr><td>tag</td> <td>list</td> <td>否</td> <td>标签列表[kg, test]</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;record&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;test-aws-simple.goatgames.app.&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;rdtype&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;A&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;rdvalue&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;rdttl&quot;</span><span class="token punctuation">:</span> <span class="token number">80</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;route&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span> <span class="token number">33</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="修改域名解析"><a href="#修改域名解析" class="header-anchor">#</a> 修改域名解析</h4> <p>请求方法：put</p> <h5 id="阿里云万维网-3"><a href="#阿里云万维网-3" class="header-anchor">#</a> 阿里云万维网</h5> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>是</td> <td>记录id</td></tr> <tr><td>domain</td> <td>int</td> <td>是</td> <td>域名id</td></tr> <tr><td>record</td> <td>string</td> <td>是</td> <td>主机记录</td></tr> <tr><td>isp</td> <td>string</td> <td>是</td> <td>解析路线ISP</td></tr> <tr><td>rdvalue</td> <td>string</td> <td>是</td> <td>记录值</td></tr> <tr><td>rdtype</td> <td>string</td> <td>是</td> <td>记录类型</td></tr> <tr><td>rdttl</td> <td>int</td> <td>是</td> <td>ttl秒数，整除时显示为对应单位(天/小时/分钟/)，否则默认显示为秒</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">14</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;record&quot;</span><span class="token punctuation">:</span><span class="token string">&quot;who12&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;isp&quot;</span><span class="token punctuation">:</span><span class="token string">&quot;default&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;rdvalue&quot;</span><span class="token punctuation">:</span><span class="token string">&quot;1.1.1.1&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;rdtype&quot;</span><span class="token punctuation">:</span><span class="token string">&quot;A&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;rdttl&quot;</span><span class="token punctuation">:</span><span class="token number">60</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h5 id="aws-route53-2"><a href="#aws-route53-2" class="header-anchor">#</a> aws route53</h5> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>是</td> <td>记录id</td></tr> <tr><td>domain</td> <td>int</td> <td>是</td> <td>域名id</td></tr> <tr><td>record</td> <td>string</td> <td>是</td> <td>主机记录</td></tr> <tr><td>rdvalue</td> <td>string</td> <td>是</td> <td>记录值</td></tr> <tr><td>rdtype</td> <td>string</td> <td>是</td> <td>记录类型</td></tr> <tr><td>rdttl</td> <td>int</td> <td>是</td> <td>ttl秒数，整除时显示为对应单位(天/小时/分钟/)，否则默认显示为秒</td></tr> <tr><td>route</td> <td>int</td> <td>是</td> <td>路由策略，请查看aws route53路由可选值</td></tr> <tr><td>routevalue</td> <td>string</td> <td>否/是</td> <td>路由策略额外内容，route非零时，必须有值</td></tr> <tr><td>routeidentifier</td> <td>string</td> <td>否/是</td> <td>路由策略记录ID，route非零时，必须有值</td></tr> <tr><td>tag</td> <td>list</td> <td>否</td> <td>标签列表[kg, test]</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">53</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;tag&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;record&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;test-aws-simple.goatgames.app.&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;rdtype&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;A&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;rdvalue&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;rdttl&quot;</span><span class="token punctuation">:</span> <span class="token number">80</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;route&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;routevalue&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;routeidentifier&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span> <span class="token number">33</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="删除域名解析"><a href="#删除域名解析" class="header-anchor">#</a> 删除域名解析</h4> <p>请求方法：delete</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>domain</td> <td>int</td> <td>是</td> <td>域名id</td></tr> <tr><td>data</td> <td>list</td> <td>是</td> <td>待删除域名解析记录id列表[id,id]</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span><span class="token number">6</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>响应内容</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment">#异常，删除出错记录id+原因</span>
+<span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">597</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;kg-test-first&quot;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">#正常</span>
+<span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="启动-暂停域名解析"><a href="#启动-暂停域名解析" class="header-anchor">#</a> 启动/暂停域名解析</h3> <h4 id="路由-4"><a href="#路由-4" class="header-anchor">#</a> 路由</h4> <p>/domain/status/</p> <p>请求方法：put</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>domain</td> <td>int</td> <td>是</td> <td>域名id</td></tr> <tr><td>status</td> <td>int</td> <td>是</td> <td>0:启动, 1:暂停</td></tr> <tr><td>data</td> <td>list</td> <td>是</td> <td>待删除域名解析记录id列表[id,id]</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span><span class="token number">7</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;status&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>响应内容：参考域名解析delete方法</p> <h3 id="刷新域名解析"><a href="#刷新域名解析" class="header-anchor">#</a> 刷新域名解析</h3> <h4 id="路由-5"><a href="#路由-5" class="header-anchor">#</a> 路由</h4> <p>/domain/freshrecord/</p> <p>请求方法：post</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>domain</td> <td>int</td> <td>是</td> <td>域名id，get请求返回值中domains列表中id字段内容</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+	<span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span> <span class="token number">24</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="域名证书"><a href="#域名证书" class="header-anchor">#</a> 域名证书</h2> <h3 id="路由-6"><a href="#路由-6" class="header-anchor">#</a> 路由</h3> <p>/domain/cert/</p> <h4 id="获取域名证书列表内容"><a href="#获取域名证书列表内容" class="header-anchor">#</a> 获取域名证书列表内容</h4> <p>查询方法：get</p> <p>响应内容</p> <p>domains内容请查看域名信息</p> <p>digicert字段内容</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增字段</td></tr> <tr><td>domain</td> <td>int</td> <td>域名id</td></tr> <tr><td>name</td> <td>string</td> <td>证书名称</td></tr> <tr><td>issuer</td> <td>string</td> <td>品牌/类型</td></tr> <tr><td>starttime</td> <td>date</td> <td>开始日期，格式yy-mm-dd</td></tr> <tr><td>endtime</td> <td>date</td> <td>到期日期，格式yy-mm-dd</td></tr> <tr><td>url</td> <td>string</td> <td>证书上传/下载地址，只能上传zip格式文件</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;domains&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">7</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;mobilegamego.com&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;provider&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;digicert&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;ksr-test&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;issuer&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;ksr&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;starttime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-07-21&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;endtime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-07-24&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;url&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;/cdn.zsjefunyz.heqmzs.com.zip&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span> <span class="token number">7</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="创建域名证书"><a href="#创建域名证书" class="header-anchor">#</a> 创建域名证书</h4> <p>请求方法：post</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>domain</td> <td>int</td> <td>是</td> <td>域名id</td></tr> <tr><td>name</td> <td>string</td> <td>是</td> <td>证书名称</td></tr> <tr><td>issuer</td> <td>string</td> <td>是</td> <td>品牌/类型</td></tr> <tr><td>starttime</td> <td>date</td> <td>是</td> <td>开始日期，格式yy-mm-dd</td></tr> <tr><td>endtime</td> <td>date</td> <td>是</td> <td>到期日期，格式yy-mm-dd</td></tr> <tr><td>url</td> <td>string</td> <td>否</td> <td>证书上传/下载地址，只能上传zip格式文件</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;kg&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;issuer&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;kg&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;starttime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-07-22&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;endtime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-07-23&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span> <span class="token number">7</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>响应内容</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment">#异常响应</span>
+<span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">599</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token string">&quot;op域名证书 with this 证书名称 already exists.&quot;</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="修改域名证书"><a href="#修改域名证书" class="header-anchor">#</a> 修改域名证书</h4> <p>请求方法：put</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>是</td> <td>证书id</td></tr> <tr><td>domain</td> <td>int</td> <td>是</td> <td>域名id</td></tr> <tr><td>name</td> <td>string</td> <td>是</td> <td>证书名称</td></tr> <tr><td>issuer</td> <td>string</td> <td>是</td> <td>品牌/类型</td></tr> <tr><td>starttime</td> <td>date</td> <td>是</td> <td>开始日期，格式yy-mm-dd</td></tr> <tr><td>endtime</td> <td>date</td> <td>是</td> <td>到期日期，格式yy-mm-dd</td></tr> <tr><td>url</td> <td>string</td> <td>否</td> <td>证书上传/下载地址，只能上传zip格式文件</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;kg&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;issuer&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;kg&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;starttime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-07-22&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;endtime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-07-23&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;domain&quot;</span><span class="token punctuation">:</span> <span class="token number">7</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="删除域名证书"><a href="#删除域名证书" class="header-anchor">#</a> 删除域名证书</h4> <h5 id="请求方法-delete"><a href="#请求方法-delete" class="header-anchor">#</a> 请求方法：delete</h5> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>备注</th></tr></thead> <tbody><tr><td>data</td> <td>list</td> <td>是</td> <td>待删除列表[id1, id2]</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+  <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>id1<span class="token punctuation">,</span> id2<span class="token punctuation">]</span> <span class="token comment">#单个/批量删除</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="下载域名证书"><a href="#下载域名证书" class="header-anchor">#</a> 下载域名证书</h3> <h4 id="路由-7"><a href="#路由-7" class="header-anchor">#</a> 路由</h4> <p>/domain/download/</p> <h5 id="请求方法-post"><a href="#请求方法-post" class="header-anchor">#</a> 请求方法：post</h5> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>备注</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>是</td> <td>证书id</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+  <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">7</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>响应内容</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment">#异常，提示报错原因</span>
+<span class="token punctuation">{</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;证书下载报错&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">599</span>
+<span class="token punctuation">}</span>
+<span class="token comment">#正常，下载文件</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.f15f75cf.js" defer></script><script src="/assets/js/2.9c4860b2.js" defer></script><script src="/assets/js/12.661aac16.js" defer></script>
+  </body>
+</html>

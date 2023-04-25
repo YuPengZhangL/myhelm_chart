@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>IT中心</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.f15f75cf.js" as="script"><link rel="preload" href="/assets/js/2.9c4860b2.js" as="script"><link rel="preload" href="/assets/js/8.9053e37f.js" as="script"><link rel="prefetch" href="/assets/js/10.34247447.js"><link rel="prefetch" href="/assets/js/11.5c2f1742.js"><link rel="prefetch" href="/assets/js/12.661aac16.js"><link rel="prefetch" href="/assets/js/13.31e0e1ab.js"><link rel="prefetch" href="/assets/js/14.6d58bf2c.js"><link rel="prefetch" href="/assets/js/15.a57eff10.js"><link rel="prefetch" href="/assets/js/16.956d9f8e.js"><link rel="prefetch" href="/assets/js/17.78b7aa1f.js"><link rel="prefetch" href="/assets/js/18.6556e82b.js"><link rel="prefetch" href="/assets/js/19.46482fe5.js"><link rel="prefetch" href="/assets/js/20.88f160e6.js"><link rel="prefetch" href="/assets/js/21.3976a019.js"><link rel="prefetch" href="/assets/js/22.56a27f24.js"><link rel="prefetch" href="/assets/js/23.877cdb78.js"><link rel="prefetch" href="/assets/js/3.f5da0df8.js"><link rel="prefetch" href="/assets/js/4.e7c996f5.js"><link rel="prefetch" href="/assets/js/5.6eff8140.js"><link rel="prefetch" href="/assets/js/6.17d5dd20.js"><link rel="prefetch" href="/assets/js/7.04c5fbb0.js"><link rel="prefetch" href="/assets/js/9.7582fe86.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="it中心"><a href="#it中心" class="header-anchor">#</a> IT中心</h1> <h2 id="it分类管理"><a href="#it分类管理" class="header-anchor">#</a> IT分类管理</h2> <h3 id="路由"><a href="#路由" class="header-anchor">#</a> 路由</h3> <p>/it/type/</p> <h4 id="获取固产类型内容"><a href="#获取固产类型内容" class="header-anchor">#</a> 获取固产类型内容</h4> <p>查询方法：get</p> <p>响应内容</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增字段</td></tr> <tr><td>name</td> <td>string</td> <td>名称</td></tr> <tr><td>ittype</td> <td>int</td> <td>类型，默认为0，表示固产类型</td></tr> <tr><td>comment</td> <td>string</td> <td>备注</td></tr></tbody></table> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;笔记本&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;ittype&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;comment&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="创建固产类型"><a href="#创建固产类型" class="header-anchor">#</a> 创建固产类型</h4> <p>请求方法：post</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>name</td> <td>string</td> <td>是</td> <td>类型</td></tr> <tr><td>ittype</td> <td>int</td> <td>是</td> <td>类型，默认为0，表示固产类型</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+	<span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;笔记本&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;ittype&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="修改固产类型"><a href="#修改固产类型" class="header-anchor">#</a> 修改固产类型</h4> <p>请求方法：put</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>name</td> <td>string</td> <td>是</td> <td>类型</td></tr> <tr><td>ittype</td> <td>int</td> <td>是</td> <td>类型，默认为0，表示固产类型</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;笔记本&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;ittype&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="删除固产类型"><a href="#删除固产类型" class="header-anchor">#</a> 删除固产类型</h4> <p>请求方法：delete</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>备注</th></tr></thead> <tbody><tr><td>data</td> <td>list</td> <td>是</td> <td>待删除项目列表[id1, id2]</td></tr></tbody></table> <div class="language-pyton extra-class"><pre class="language-text"><code>{
+  &quot;data&quot;: [id1, id2] #单个/批量删除
+}
+</code></pre></div><h2 id="固产管理"><a href="#固产管理" class="header-anchor">#</a> 固产管理</h2> <h3 id="路由-2"><a href="#路由-2" class="header-anchor">#</a> 路由</h3> <p>/it/asset/</p> <h4 id="获取固产内容"><a href="#获取固产内容" class="header-anchor">#</a> 获取固产内容</h4> <p>查询方法：get</p> <p>响应内容</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增字段</td></tr> <tr><td>ittype</td> <td>int</td> <td>产品类型</td></tr> <tr><td>code</td> <td>string</td> <td>资产编码</td></tr> <tr><td>center</td> <td>string</td> <td>所属中心</td></tr> <tr><td>depart</td> <td>string</td> <td>所属部门</td></tr> <tr><td>cname</td> <td>string</td> <td>资产名称</td></tr> <tr><td>brand</td> <td>string</td> <td>品牌</td></tr> <tr><td>issuer</td> <td>string</td> <td>供应商</td></tr> <tr><td>cost</td> <td>int</td> <td>采购价格</td></tr> <tr><td>status</td> <td>int</td> <td>状态，默认为0(空闲)，1(已分配)，2(已废弃)</td></tr> <tr><td>location</td> <td>string</td> <td>资产位置</td></tr> <tr><td>user</td> <td>string</td> <td>使用人</td></tr> <tr><td>comment</td> <td>string</td> <td>规格说明</td></tr> <tr><td>buytime</td> <td>date</td> <td>入仓时间，格式yyyy-mm-dd</td></tr> <tr><td>usetime</td> <td>date</td> <td>分配时间，格式yyyy-mm-dd</td></tr> <tr><td>ittype</td> <td>list</td> <td>产品类型，详细请查看it分类管理列表</td></tr> <tr><td>area</td> <td>dict</td> <td>固产所在地区，0：广州，1：成都</td></tr></tbody></table> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;area&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;0&quot;</span><span class="token operator">:</span> <span class="token string">&quot;广州&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;1&quot;</span><span class="token operator">:</span> <span class="token string">&quot;成都&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;ittype&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;台式主机&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;asset&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token string">&quot;saytesatewe&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;center&quot;</span><span class="token operator">:</span> <span class="token string">&quot;zgdszdgsd&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;depart&quot;</span><span class="token operator">:</span> <span class="token string">&quot;zagbhsadws&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;cname&quot;</span><span class="token operator">:</span> <span class="token string">&quot;bwsedwe&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;brand&quot;</span><span class="token operator">:</span> <span class="token string">&quot;GBZSDwse&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;cost&quot;</span><span class="token operator">:</span> <span class="token number">23232222</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;issuer&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;buytime&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2021-11-02&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;usetime&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2099-01-01&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;comment&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;location&quot;</span><span class="token operator">:</span> <span class="token string">&quot;3-2-1&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;user&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;status&quot;</span><span class="token operator">:</span> <span class="token string">&quot;已分配&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;area&quot;</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;ittype&quot;</span><span class="token operator">:</span> <span class="token number">5</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token string">&quot;GOAT-ZJ-125&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;center&quot;</span><span class="token operator">:</span> <span class="token string">&quot;技术中心&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;depart&quot;</span><span class="token operator">:</span> <span class="token string">&quot;技术中心&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;cname&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;brand&quot;</span><span class="token operator">:</span> <span class="token string">&quot;祖之理&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;cost&quot;</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;issuer&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;buytime&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2015-10-02&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;usetime&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2015-10-02&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;comment&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;location&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;user&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;status&quot;</span><span class="token operator">:</span> <span class="token string">&quot;0&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;area&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;ittype&quot;</span><span class="token operator">:</span> <span class="token number">3</span>
+            <span class="token punctuation">}</span>
+            
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="创建固产"><a href="#创建固产" class="header-anchor">#</a> 创建固产</h4> <p>请求方法：post</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>ittype</td> <td>int</td> <td>是</td> <td>分类管理id</td></tr> <tr><td>code</td> <td>string</td> <td>是</td> <td>资产编码</td></tr> <tr><td>center</td> <td>string</td> <td>是</td> <td>所属中心</td></tr> <tr><td>depart</td> <td>string</td> <td>是</td> <td>所属部门</td></tr> <tr><td>cname</td> <td>string</td> <td>否</td> <td>资产名称</td></tr> <tr><td>brand</td> <td>string</td> <td>是</td> <td>品牌</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td>规格说明</td></tr> <tr><td>cost</td> <td>int</td> <td>是</td> <td>采购价格</td></tr> <tr><td>issuer</td> <td>string</td> <td>否</td> <td>供应商</td></tr> <tr><td>buytime</td> <td>date</td> <td>是</td> <td>入仓时间，格式yyyy-mm-dd，默认当前日期</td></tr> <tr><td>usetime</td> <td>date</td> <td>是</td> <td>分配时间，格式yyyy-mm-dd，默认给2099-01-01</td></tr> <tr><td>location</td> <td>string</td> <td>否</td> <td>资产位置</td></tr> <tr><td>status</td> <td>int</td> <td>是</td> <td>状态，默认为0(空闲)，1(已分配)，2(已废弃)</td></tr> <tr><td>user</td> <td>string</td> <td>否</td> <td>使用人，如果status为已分配，为必填</td></tr> <tr><td>area</td> <td>int</td> <td>否</td> <td>地区数值，默认为0，表示广州</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+	<span class="token string">&quot;ittype&quot;</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;code&quot;</span> <span class="token punctuation">:</span><span class="token string">&quot;GOAT-ZJ-121&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;center&quot;</span> <span class="token punctuation">:</span><span class="token string">&quot;技术中心&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;depart&quot;</span> <span class="token punctuation">:</span><span class="token string">&quot;技术中心&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;brand&quot;</span> <span class="token punctuation">:</span><span class="token string">&quot;祖之理&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;cost&quot;</span> <span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;buytime&quot;</span> <span class="token punctuation">:</span><span class="token string">&quot;2015-10-02&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;usetime&quot;</span> <span class="token punctuation">:</span><span class="token string">&quot;2015-10-02&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;status&quot;</span> <span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;area&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="修改固产"><a href="#修改固产" class="header-anchor">#</a> 修改固产</h4> <p>请求方法：put</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>是</td> <td>自增字段</td></tr> <tr><td>ittype</td> <td>int</td> <td>是</td> <td>分类管理id或者null</td></tr> <tr><td>code</td> <td>string</td> <td>是</td> <td>资产编码</td></tr> <tr><td>center</td> <td>string</td> <td>是</td> <td>所属中心</td></tr> <tr><td>depart</td> <td>string</td> <td>是</td> <td>所属部门</td></tr> <tr><td>cname</td> <td>string</td> <td>否</td> <td>资产名称</td></tr> <tr><td>brand</td> <td>string</td> <td>是</td> <td>品牌</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td>规格说明</td></tr> <tr><td>cost</td> <td>int</td> <td>是</td> <td>采购价格</td></tr> <tr><td>issuer</td> <td>string</td> <td>否</td> <td>供应商</td></tr> <tr><td>buytime</td> <td>date</td> <td>是</td> <td>入仓时间，格式yyyy-mm-dd，默认当前日期</td></tr> <tr><td>usetime</td> <td>date</td> <td>是</td> <td>分配时间，格式yyyy-mm-dd，默认给2099-01-01</td></tr> <tr><td>location</td> <td>string</td> <td>否</td> <td>资产位置</td></tr> <tr><td>status</td> <td>int</td> <td>是</td> <td>状态，默认为0(空闲)，1(已分配)，2(已废弃)</td></tr> <tr><td>user</td> <td>string</td> <td>否</td> <td>使用人，如果status为已分配，为必填</td></tr> <tr><td>area</td> <td>int</td> <td>否</td> <td>地区数值，默认为0，表示广州</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;GOAT-ZJ-123&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;center&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;技术中心&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;depart&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;技术中心&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;cname&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;brand&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;祖之理&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;cost&quot;</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;issuer&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;teste&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;buytime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2015-10-02&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;usetime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2015-10-02&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;location&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;user&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;status&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;ittype&quot;</span><span class="token punctuation">:</span> <span class="token number">2</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="删除固产"><a href="#删除固产" class="header-anchor">#</a> 删除固产</h4> <p>请求方法：delete</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>备注</th></tr></thead> <tbody><tr><td>data</td> <td>list</td> <td>是</td> <td>待删除列表[id1, id2]</td></tr></tbody></table> <div class="language-pyton extra-class"><pre class="language-text"><code>{
+  &quot;data&quot;: [id1, id2] #单个/批量删除
+}
+</code></pre></div><h4 id="导出固产内容"><a href="#导出固产内容" class="header-anchor">#</a> 导出固产内容</h4> <h5 id="路由-3"><a href="#路由-3" class="header-anchor">#</a> 路由</h5> <p>/it/asset-export/</p> <p>查询方法：post</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>备注</th></tr></thead> <tbody><tr><td>data</td> <td>list</td> <td>否</td> <td>待导出固产id列表[id1, id2]</td></tr> <tr><td>area</td> <td>int</td> <td>否</td> <td>导出地区，具体值请参考固产get方法</td></tr></tbody></table> <div class="language-pyton extra-class"><pre class="language-text"><code>存在，表示导出指定部分内容，否则导出所有
+#导出id1和id2
+{
+  &quot;data&quot;: [id1, id2],
+  &quot;area&quot;: 0
+}
+没有参数，表示导出所有
+</code></pre></div><h4 id="导入固产内容"><a href="#导入固产内容" class="header-anchor">#</a> 导入固产内容</h4> <h5 id="路由-4"><a href="#路由-4" class="header-anchor">#</a> 路由</h5> <p>/it/asset-load/</p> <p>查询方法：post</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>备注</th></tr></thead> <tbody><tr><td>file</td> <td>file</td> <td>是</td> <td>上传文件内容request.FILES</td></tr></tbody></table> <h4 id=""><a href="#" class="header-anchor">#</a></h4></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.f15f75cf.js" defer></script><script src="/assets/js/2.9c4860b2.js" defer></script><script src="/assets/js/8.9053e37f.js" defer></script>
+  </body>
+</html>

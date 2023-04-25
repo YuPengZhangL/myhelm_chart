@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Alert Center 接口文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.f15f75cf.js" as="script"><link rel="preload" href="/assets/js/2.9c4860b2.js" as="script"><link rel="preload" href="/assets/js/7.04c5fbb0.js" as="script"><link rel="prefetch" href="/assets/js/10.34247447.js"><link rel="prefetch" href="/assets/js/11.5c2f1742.js"><link rel="prefetch" href="/assets/js/12.661aac16.js"><link rel="prefetch" href="/assets/js/13.31e0e1ab.js"><link rel="prefetch" href="/assets/js/14.6d58bf2c.js"><link rel="prefetch" href="/assets/js/15.a57eff10.js"><link rel="prefetch" href="/assets/js/16.956d9f8e.js"><link rel="prefetch" href="/assets/js/17.78b7aa1f.js"><link rel="prefetch" href="/assets/js/18.6556e82b.js"><link rel="prefetch" href="/assets/js/19.46482fe5.js"><link rel="prefetch" href="/assets/js/20.88f160e6.js"><link rel="prefetch" href="/assets/js/21.3976a019.js"><link rel="prefetch" href="/assets/js/22.56a27f24.js"><link rel="prefetch" href="/assets/js/23.877cdb78.js"><link rel="prefetch" href="/assets/js/3.f5da0df8.js"><link rel="prefetch" href="/assets/js/4.e7c996f5.js"><link rel="prefetch" href="/assets/js/5.6eff8140.js"><link rel="prefetch" href="/assets/js/6.17d5dd20.js"><link rel="prefetch" href="/assets/js/8.9053e37f.js"><link rel="prefetch" href="/assets/js/9.7582fe86.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="alert-center-接口文档"><a href="#alert-center-接口文档" class="header-anchor">#</a> Alert Center 接口文档</h1> <h2 id="主题路由-alert-config-themes"><a href="#主题路由-alert-config-themes" class="header-anchor">#</a> 主题路由：/alert/config/themes/</h2> <h4 id="请求类型-get"><a href="#请求类型-get" class="header-anchor">#</a> 请求类型：GET</h4> <ul><li><p>用途：获取主题列表（含主题具体内容）</p></li> <li><p>请求参数：无</p></li> <li><p>响应字段声明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>type</td> <td>string</td> <td>是</td> <td>主题的类型</td></tr> <tr><td>id</td> <td>string</td> <td>是</td> <td>主题的名称</td></tr></tbody></table> <p>其他字段略，当前版本仅需展示主题列表即可</p></li></ul> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  	<span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  	<span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;dingding_signal_action_card&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;buttons&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{{ message.title }}&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;actionURL&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;text&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{{ message.content }}&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;default-message-style.yml&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;buttons&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{{ alert.alarmInfo.level }}&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;actionURL&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;text&quot;</span><span class="token operator">:</span> <span class="token string">&quot;{{ alert }}&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;dingding_signal_action_card&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;default-alert-style.yml&quot;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><hr> <h4 id="请求类型-post"><a href="#请求类型-post" class="header-anchor">#</a> 请求类型：POST</h4> <ul><li>用途：创建新主题</li> <li>其他声明略，当前版本仅需展示主题列表即可</li></ul> <hr> <h4 id="请求类型-put"><a href="#请求类型-put" class="header-anchor">#</a> 请求类型：PUT</h4> <ul><li>用途：更新主题</li> <li>其他声明略，当前版本仅需展示主题列表即可</li></ul> <hr> <h4 id="请求类型-delete"><a href="#请求类型-delete" class="header-anchor">#</a> 请求类型：DELETE</h4> <ul><li>用途：删除主题</li> <li>其他声明略，当前版本仅需展示主题列表即可</li></ul> <h2 id="主题名称路由-alert-config-themes-names"><a href="#主题名称路由-alert-config-themes-names" class="header-anchor">#</a> 主题名称路由：/alert/config/themes_names/</h2> <h4 id="请求类型-get-2"><a href="#请求类型-get-2" class="header-anchor">#</a> 请求类型：GET</h4> <ul><li><p>用途：获取所有主题名称（含主题具体内容）</p></li> <li><p>请求参数：无</p></li> <li><p>响应字段声明</p> <p>响应字段声明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>type</td> <td>string</td> <td>是</td> <td>主题所属的媒介类型<br>请注意：和前面的主题类型不是同一个概念</td></tr> <tr><td>id</td> <td>string</td> <td>是</td> <td>主题的名称</td></tr></tbody></table></li> <li><p>示例</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  	<span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  	<span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;default-message-style.yml&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;dingding&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;default-alert-style.yml&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;dingding&quot;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="通知媒介路由-alert-config-mediums"><a href="#通知媒介路由-alert-config-mediums" class="header-anchor">#</a> 通知媒介路由：/alert/config/mediums/</h2> <h4 id="请求类型-get-3"><a href="#请求类型-get-3" class="header-anchor">#</a> 请求类型：GET</h4> <ul><li><p>用途：获取通知媒介列表</p></li> <li><p>请求参数：无</p></li> <li><p>响应字段声明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>json的key</td> <td>string</td> <td>是</td> <td>媒介名称</td></tr> <tr><td>type</td> <td>string</td> <td>是</td> <td>媒介的类型</td></tr> <tr><td>theme</td> <td>string</td> <td>是</td> <td>该媒介使用的主题</td></tr> <tr><td></td> <td></td> <td></td> <td></td></tr> <tr><td>url</td> <td>string</td> <td>否</td> <td>钉钉url，仅当媒介类型为时包含此参数</td></tr> <tr><td>secret</td> <td>string</td> <td>否</td> <td>钉钉加签验证secret，仅当媒介类型为dingding时，可能含有此参数</td></tr> <tr><td></td> <td></td> <td></td> <td></td></tr> <tr><td>SECRETID</td> <td>string</td> <td>否</td> <td>腾讯语音鉴权ID，仅当媒介类型为tx-voice时包含此参数</td></tr> <tr><td>SECRETKEY</td> <td>string</td> <td>否</td> <td>腾讯语音鉴权KEY，仅当媒介类型为tx-voice时包含此参数</td></tr> <tr><td>VOICESDKAPPID</td> <td>string</td> <td>否</td> <td>腾讯语音APPID，仅当媒介类型为tx-voice时包含此参数</td></tr> <tr><td>alternate-contact</td> <td>list</td> <td>否</td> <td>备用联系人列表，仅当媒介类型为tx-voice时包含此参数</td></tr> <tr><td>duty-contact</td> <td>string</td> <td>否</td> <td>值班表文件位置，仅当媒介类型为tx-voice时包含此参数</td></tr></tbody></table></li> <li><p>示例</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  	<span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;id&quot;</span><span class="token operator">:</span><span class="token string">&quot;bigdata-dingding&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;dingding&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;url&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://oapi.dingtalk.com/robot/send?access_token=xxxxx&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;secret&quot;</span><span class="token operator">:</span> <span class="token string">&quot;xxxxxxx&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;theme&quot;</span><span class="token operator">:</span> <span class="token string">&quot;dingding-card-default-style&quot;</span>
+
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;id&quot;</span><span class="token operator">:</span><span class="token string">&quot;bigdata-tx-phone&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;tx-voice&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;SECRETID&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;SECRETKEY&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;VOICESDKAPPID&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;theme&quot;</span><span class="token operator">:</span> <span class="token string">&quot;default-alert-voice&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;alternate-contact&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;+86xxxxxxxx&quot;</span>
+            <span class="token punctuation">]</span>
+
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;id&quot;</span><span class="token operator">:</span><span class="token string">&quot;bigdata-message-dingding&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;dingding&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;url&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://oapi.dingtalk.com/robot/send?xxxxxxxxx&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;secret&quot;</span><span class="token operator">:</span> <span class="token string">&quot;xxxxxxxxxx&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;theme&quot;</span><span class="token operator">:</span> <span class="token string">&quot;dingding-card-default-message-style&quot;</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <hr> <h4 id="请求类型-post-put"><a href="#请求类型-post-put" class="header-anchor">#</a> 请求类型：POST/PUT</h4> <ul><li><p>用途：创建通知媒介/更新通知媒介</p></li> <li><p>请求body：有</p></li> <li><p>请求body说明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>json的key</td> <td>string</td> <td>是</td> <td>媒介名称</td></tr> <tr><td>type</td> <td>string</td> <td>是</td> <td>媒介的类型</td></tr> <tr><td>theme</td> <td>string</td> <td>是</td> <td>该媒介使用的主题</td></tr> <tr><td></td> <td></td> <td></td> <td></td></tr> <tr><td>url</td> <td>string</td> <td>否</td> <td>钉钉url，仅当媒介类型为时包含此参数</td></tr> <tr><td>secret</td> <td>string</td> <td>否</td> <td>钉钉加签验证secret，仅当媒介类型为dingding时，可能含有此参数</td></tr> <tr><td></td> <td></td> <td></td> <td></td></tr> <tr><td>SECRETID</td> <td>string</td> <td>否</td> <td>腾讯语音鉴权ID，仅当媒介类型为tx-voice时包含此参数</td></tr> <tr><td>SECRETKEY</td> <td>string</td> <td>否</td> <td>腾讯语音鉴权KEY，仅当媒介类型为tx-voice时包含此参数</td></tr> <tr><td>VOICESDKAPPID</td> <td>string</td> <td>否</td> <td>腾讯语音APPID，仅当媒介类型为tx-voice时包含此参数</td></tr> <tr><td>alternate-contact</td> <td>list</td> <td>否</td> <td>备用联系人列表，仅当媒介类型为tx-voice时包含此参数</td></tr> <tr><td>duty-contact</td> <td>string</td> <td>否</td> <td>值班表文件位置，仅当媒介类型为tx-voice时包含此参数</td></tr></tbody></table></li> <li><p>请求参数示例</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token comment">// 创建/更新更新钉钉类型媒介示例</span>
+<span class="token punctuation">{</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;bigdata-dingding&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;dingding&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;url&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://oapi.dingtalk.com/robot/send?access_token=xxxxx&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;secret&quot;</span><span class="token operator">:</span> <span class="token string">&quot;xxxxxxx&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;theme&quot;</span><span class="token operator">:</span> <span class="token string">&quot;dingding-card-default-style&quot;</span>
+
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 创建/更新腾讯电话类型示例</span>
+<span class="token punctuation">{</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;id&quot;</span><span class="token operator">:</span><span class="token string">&quot;bigdata-tx-phone&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;tx-voice&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;SECRETID&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;SECRETKEY&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;VOICESDKAPPID&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;theme&quot;</span><span class="token operator">:</span> <span class="token string">&quot;default-alert-voice&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;alternate-contact&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;+86xxxxxxxx&quot;</span>
+            <span class="token punctuation">]</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+
+</code></pre></div></li> <li><p>响应参数说明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>status</td> <td>string</td> <td>是</td> <td>动作状态，仅作详细信息说明，任何非200/3xx状态码均为异常响应</td></tr></tbody></table></li> <li><p>响应示例</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;status&quot;</span><span class="token operator">:</span><span class="token string">&quot;更新成功&quot;</span>
+<span class="token punctuation">}</span>  <span class="token comment">//http code 200</span>
+<span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;status&quot;</span><span class="token operator">:</span><span class="token string">&quot;error xxxxxxx&quot;</span>
+<span class="token punctuation">}</span> <span class="token comment">//http code 502 </span>
+</code></pre></div></li></ul> <hr> <h4 id="请求类型-delete-2"><a href="#请求类型-delete-2" class="header-anchor">#</a> 请求类型：DELETE</h4> <ul><li><p>用途：删除通知媒介</p></li> <li><p>请求body：有</p></li> <li><p>请求body说明</p> <p>请求body说明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>data</td> <td>list</td> <td>是</td> <td>待删除项目列表[id1, id2]</td></tr></tbody></table></li> <li><p>请求示例</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;data&quot;: [id1, id2] #单个/批量删除
+}
+</code></pre></div></li> <li><p>响应参数说明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>status</td> <td>string</td> <td>是</td> <td>动作状态，仅作详细信息说明，任何非200/3xx状态码均为异常响应</td></tr></tbody></table></li> <li><p>响应示例</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>  <span class="token comment">//http code 200</span>
+<span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">417</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;失败，xxxxx&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span> <span class="token comment">//http code 417</span>
+</code></pre></div></li></ul> <h2 id="通知媒介名称路由-alert-config-mediums-names"><a href="#通知媒介名称路由-alert-config-mediums-names" class="header-anchor">#</a> 通知媒介名称路由：/alert/config/mediums_names/</h2> <h4 id="请求类型-get-4"><a href="#请求类型-get-4" class="header-anchor">#</a> 请求类型：GET</h4> <ul><li><p>用途：获取所有媒介名称（含主题具体内容）</p></li> <li><p>请求参数：无</p></li> <li><p>响应字段声明</p> <p>响应字段声明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>string</td> <td>是</td> <td>媒介的名称</td></tr></tbody></table></li> <li><p>示例</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  	<span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  	<span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;bigdata-dingding&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;bigdata-tx-phone&quot;</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="通知组路由-alert-config-sendgroups"><a href="#通知组路由-alert-config-sendgroups" class="header-anchor">#</a> 通知组路由：/alert/config/sendgroups/</h2> <h4 id="请求类型-get-5"><a href="#请求类型-get-5" class="header-anchor">#</a> 请求类型：GET</h4> <ul><li><p>用途：获取通知组</p></li> <li><p>请求参数：无</p></li> <li><p>响应字段声明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>json的key</td> <td>string</td> <td>是</td> <td>通知组名称</td></tr> <tr><td>secure</td> <td>string</td> <td>是</td> <td>随机字符串，sendgroup的验证字段</td></tr> <tr><td>alert-medium</td> <td>list</td> <td>是</td> <td>普通告警媒介的名称</td></tr> <tr><td>high-alert-medium</td> <td>list</td> <td>是</td> <td>严重告警媒介的名称</td></tr> <tr><td>message-medium</td> <td>list</td> <td>是</td> <td>消息通知媒介的名称</td></tr></tbody></table></li> <li><p>响应示例</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  	<span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  	<span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;bigdata&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;secure&quot;</span><span class="token operator">:</span> <span class="token string">&quot;xjgksangka&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;alert-medium&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;bigdata-dingding&quot;</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;high-alert-medium&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;bigdata-tx-phone&quot;</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;message-medium&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;bigdata-message-dingding&quot;</span>
+            <span class="token punctuation">]</span>
+
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <hr> <h4 id="请求类型-post-put-2"><a href="#请求类型-post-put-2" class="header-anchor">#</a> 请求类型：POST/PUT</h4> <ul><li><p>用途：创建通知组/更新通知组</p></li> <li><p>请求body：需要</p></li> <li><p>请求body字段说明：</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>json的key</td> <td>string</td> <td>是</td> <td>通知组名称</td></tr> <tr><td>secure</td> <td>string</td> <td>是</td> <td>随机字符串，sendgroup的验证字段</td></tr> <tr><td>alert-medium</td> <td>list</td> <td>是</td> <td>普通告警媒介的名称，此项目需要从/config/mediums_names获取名称，下同</td></tr> <tr><td>high-alert-medium</td> <td>list</td> <td>是</td> <td>严重告警媒介的名称</td></tr> <tr><td>message-medium</td> <td>list</td> <td>是</td> <td>消息通知媒介的名称</td></tr></tbody></table></li> <li><p>请求示例：</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;id&quot;</span> <span class="token operator">:</span> <span class="token string">&quot;bigdata&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;secure&quot;</span><span class="token operator">:</span> <span class="token string">&quot;xjgksangka&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;alert-medium&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;bigdata-dingding&quot;</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;high-alert-medium&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;bigdata-tx-phone&quot;</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;message-medium&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;bigdata-message-dingding&quot;</span>
+            <span class="token punctuation">]</span>         
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>响应内容说明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>status</td> <td>string</td> <td>是</td> <td>动作状态，仅作详细信息说明，任何非200/3xx状态码均为异常响应</td></tr></tbody></table></li> <li><p>响应示例</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>  <span class="token comment">//http code 200</span>
+<span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">417</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;更新失败，xxxxx&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span> <span class="token comment">//http code 417</span>
+</code></pre></div></li></ul> <hr> <h4 id="请求类型-delete-3"><a href="#请求类型-delete-3" class="header-anchor">#</a> 请求类型：DELETE</h4> <ul><li><p>用途：删除通知组</p></li> <li><p>请求body：有</p></li> <li><p>请求body说明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>data</td> <td>list</td> <td>是</td> <td>待删除项目列表[id1, id2]</td></tr></tbody></table></li> <li><p>请求示例</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;data&quot;: [id1, id2] #单个/批量删除
+}
+</code></pre></div></li> <li><p>响应参数说明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>status</td> <td>string</td> <td>是</td> <td>动作状态，仅作详细信息说明，任何非200/3xx状态码均为异常响应</td></tr></tbody></table></li> <li><p>响应示例</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>  <span class="token comment">//http code 200</span>
+<span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">417</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;删除失败，xxxxx&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span> <span class="token comment">//http code 417</span>
+
+</code></pre></div></li></ul> <h2 id="过滤器-屏蔽-路由-alert-config-filter"><a href="#过滤器-屏蔽-路由-alert-config-filter" class="header-anchor">#</a> 过滤器(屏蔽)路由：/alert/config/filter/</h2> <h4 id="请求类型-get-6"><a href="#请求类型-get-6" class="header-anchor">#</a> 请求类型：GET</h4> <ul><li><p>用途：获取过滤器列表</p></li> <li><p>请求参数：无</p></li> <li><p>响应字段声明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>json的key</td> <td>string</td> <td>是</td> <td>过滤器id</td></tr> <tr><td>condition</td> <td>dict</td> <td>是</td> <td>条件。共三种类型：project，项目；resource，资源；trigger，触发器</td></tr> <tr><td>time_start</td> <td>string</td> <td>是</td> <td>开始时间</td></tr> <tr><td>time_end</td> <td>string</td> <td>是</td> <td>结束时间</td></tr> <tr><td>regular</td> <td>string</td> <td>是</td> <td>是否重复，当前版本改字段无效</td></tr> <tr><td>info</td> <td>string</td> <td>是</td> <td>过滤器描述</td></tr> <tr><td>action</td> <td>string</td> <td>是</td> <td>动作，符合过滤器条件是的动作：forbid，屏蔽；sendnow，立即发送</td></tr> <tr><td>sendto</td> <td>string</td> <td>是</td> <td>将该条过滤器的表更发送至哪个通知组，通知组需从上述接口获取</td></tr> <tr><td>creater</td> <td>string</td> <td>是</td> <td>创建者，根据op系统当前登陆用户生成</td></tr></tbody></table></li> <li><p>响应示例</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+ 	<span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;123&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;condition&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token property">&quot;project&quot;</span><span class="token operator">:</span> <span class="token string">&quot;gt-test&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;resource&quot;</span><span class="token operator">:</span> <span class="token string">&quot;gt-host1&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;trigger&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cpu使用率&quot;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;time_start&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2021/12/27 09:30&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;time_end&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2021/12/27 14:00&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;regular&quot;</span><span class="token operator">:</span> <span class="token string">&quot;no&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;creater&quot;</span><span class="token operator">:</span> <span class="token string">&quot;tester&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;info&quot;</span><span class="token operator">:</span> <span class="token string">&quot;this a test&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;action&quot;</span><span class="token operator">:</span> <span class="token string">&quot;forbid&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;sendto&quot;</span><span class="token operator">:</span> &quot;bigdata
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h4 id="请求类型-post-put-3"><a href="#请求类型-post-put-3" class="header-anchor">#</a> 请求类型：POST/PUT</h4> <ul><li><p>用途：创建或更新过滤器</p></li> <li><p>请求参数：有</p></li> <li><p>响应字段声明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>json的key</td> <td>string</td> <td>是</td> <td>过滤器id，此参数在点击修改按钮的时候获取</td></tr> <tr><td>condition</td> <td>dict</td> <td>是</td> <td>条件。共三种类型：project，项目；resource，资源；trigger，触发器</td></tr> <tr><td>time_start</td> <td>string</td> <td>是</td> <td>开始时间</td></tr> <tr><td>time_end</td> <td>string</td> <td>是</td> <td>结束时间</td></tr> <tr><td>regular</td> <td>string</td> <td>是</td> <td>是否重复，当前版本改字段无效</td></tr> <tr><td>info</td> <td>string</td> <td>是</td> <td>过滤器描述</td></tr> <tr><td>action</td> <td>string</td> <td>是</td> <td>动作，符合过滤器条件是的动作：forbid，屏蔽；sendnow，立即发送</td></tr> <tr><td>sendto</td> <td>string</td> <td>是</td> <td>将该条过滤器的表更发送至哪个通知组，通知组需从上述接口获取</td></tr> <tr><td>creater</td> <td>string</td> <td>是</td> <td>创建者，根据op系统当前登陆用户生成</td></tr></tbody></table></li> <li><p>请求示例</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;123&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;condition&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token property">&quot;project&quot;</span><span class="token operator">:</span> <span class="token string">&quot;gt-test&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;resource&quot;</span><span class="token operator">:</span> <span class="token string">&quot;gt-host1&quot;</span><span class="token punctuation">,</span>
+                <span class="token property">&quot;trigger&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cpu使用率&quot;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;time_start&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2021/12/27 09:30&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;time_end&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2021/12/27 14:00&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;regular&quot;</span><span class="token operator">:</span> <span class="token string">&quot;no&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;creater&quot;</span><span class="token operator">:</span> <span class="token string">&quot;tester&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;info&quot;</span><span class="token operator">:</span> <span class="token string">&quot;this a test&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;action&quot;</span><span class="token operator">:</span> <span class="token string">&quot;forbid&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;sendto&quot;</span><span class="token operator">:</span> <span class="token string">&quot;bigdata&quot;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>响应内容说明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>status</td> <td>string</td> <td>是</td> <td>动作状态，仅作详细信息说明，任何非200/3xx状态码均为异常响应</td></tr></tbody></table></li> <li><p>响应示例</p> <div class="language- extra-class"><pre class="language-text"><code>{
+&quot;code&quot;: 200,
+&quot;message&quot;: &quot;OK&quot;,
+&quot;data&quot;:[]
+}  //http code 200
+{
+&quot;code&quot;: 417,
+&quot;message&quot;: &quot;更新失败，xxxxx&quot;,
+&quot;data&quot;:[]
+} //http code 417
+</code></pre></div></li></ul> <hr> <h4 id="请求类型-delete-4"><a href="#请求类型-delete-4" class="header-anchor">#</a> 请求类型：DELETE</h4> <ul><li><p>用途：删除过滤器</p></li> <li><p>请求body：有</p></li> <li><p>请求body说明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>data</td> <td>list</td> <td>是</td> <td>待删除项目列表[id1, id2]</td></tr></tbody></table></li> <li><p>请求示例</p> <div class="language- extra-class"><pre class="language-text"><code>{
+  &quot;data&quot;: [id1, id2] #单个/批量删除
+}
+</code></pre></div></li> <li><p>响应参数说明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>status</td> <td>string</td> <td>是</td> <td>动作状态，仅作详细信息说明，任何非200/3xx状态码均为异常响应</td></tr></tbody></table></li> <li><p>响应示例</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>  <span class="token comment">//http code 200</span>
+<span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">417</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;删除失败,不存在&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span> <span class="token comment">//http code 417</span>
+</code></pre></div></li></ul> <h2 id="已知项目路由-alert-config-projects"><a href="#已知项目路由-alert-config-projects" class="header-anchor">#</a> 已知项目路由：/alert/config/projects/</h2> <h4 id="请求类型-get-7"><a href="#请求类型-get-7" class="header-anchor">#</a> 请求类型：GET</h4> <ul><li><p>用途：获取过滤器列表</p></li> <li><p>请求参数：无</p></li> <li><p>响应字段声明</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>data</td> <td>list</td> <td>是</td> <td>已知业务的名称</td></tr></tbody></table></li> <li><p>响应示例</p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;OK&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;gt-wam&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;gt-wst&quot;</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.f15f75cf.js" defer></script><script src="/assets/js/2.9c4860b2.js" defer></script><script src="/assets/js/7.04c5fbb0.js" defer></script>
+  </body>
+</html>

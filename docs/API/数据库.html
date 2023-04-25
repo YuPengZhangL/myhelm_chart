@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数据库</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.f15f75cf.js" as="script"><link rel="preload" href="/assets/js/2.9c4860b2.js" as="script"><link rel="preload" href="/assets/js/13.31e0e1ab.js" as="script"><link rel="prefetch" href="/assets/js/10.34247447.js"><link rel="prefetch" href="/assets/js/11.5c2f1742.js"><link rel="prefetch" href="/assets/js/12.661aac16.js"><link rel="prefetch" href="/assets/js/14.6d58bf2c.js"><link rel="prefetch" href="/assets/js/15.a57eff10.js"><link rel="prefetch" href="/assets/js/16.956d9f8e.js"><link rel="prefetch" href="/assets/js/17.78b7aa1f.js"><link rel="prefetch" href="/assets/js/18.6556e82b.js"><link rel="prefetch" href="/assets/js/19.46482fe5.js"><link rel="prefetch" href="/assets/js/20.88f160e6.js"><link rel="prefetch" href="/assets/js/21.3976a019.js"><link rel="prefetch" href="/assets/js/22.56a27f24.js"><link rel="prefetch" href="/assets/js/23.877cdb78.js"><link rel="prefetch" href="/assets/js/3.f5da0df8.js"><link rel="prefetch" href="/assets/js/4.e7c996f5.js"><link rel="prefetch" href="/assets/js/5.6eff8140.js"><link rel="prefetch" href="/assets/js/6.17d5dd20.js"><link rel="prefetch" href="/assets/js/7.04c5fbb0.js"><link rel="prefetch" href="/assets/js/8.9053e37f.js"><link rel="prefetch" href="/assets/js/9.7582fe86.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="数据库"><a href="#数据库" class="header-anchor">#</a> 数据库</h1> <h2 id="公共数据"><a href="#公共数据" class="header-anchor">#</a> 公共数据</h2> <div class="language-python extra-class"><pre class="language-python"><code>可选云平台
+<span class="token number">0</span>  <span class="token comment"># 自建数据库 </span>
+<span class="token number">1</span>  <span class="token comment"># 腾讯云-CDB</span>
+<span class="token number">2</span>  <span class="token comment"># AWS-RDS</span>
+</code></pre></div><h2 id="mysql"><a href="#mysql" class="header-anchor">#</a> Mysql</h2> <h3 id="路由"><a href="#路由" class="header-anchor">#</a> 路由</h3> <p>/db/mysql/</p> <h4 id="获取数据库内容"><a href="#获取数据库内容" class="header-anchor">#</a> 获取数据库内容</h4> <p>查询方法：get</p> <p>请求内容</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>flag</td> <td>int</td> <td>是</td> <td>云平台，请查看公共数据，可选云平台</td></tr></tbody></table> <p>响应内容</p> <p>自建mysql</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增id</td></tr> <tr><td>account</td> <td>int</td> <td>数据库用户id</td></tr> <tr><td>version</td> <td>int</td> <td>所属项目id</td></tr> <tr><td>name</td> <td>string</td> <td>数据库名</td></tr> <tr><td>region</td> <td>string</td> <td>可用区</td></tr> <tr><td>cpu</td> <td>int</td> <td>cpu核数</td></tr> <tr><td>memory</td> <td>int</td> <td>内存大小(G)</td></tr> <tr><td>disk</td> <td>int</td> <td>磁盘大小(G)</td></tr> <tr><td>port</td> <td>int</td> <td>端口</td></tr> <tr><td>ip</td> <td>string</td> <td>内网地址</td></tr> <tr><td>mysql</td> <td>string</td> <td>数据库版本</td></tr> <tr><td>status</td> <td>string</td> <td>不可修改，默认运行中</td></tr> <tr><td>creattime</td> <td>date</td> <td>创建日期，格式'yy-mm-dd'，默认为当前日期</td></tr> <tr><td>comment</td> <td>string</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;mysql&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;test1&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;region&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;广州&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;cpu&quot;</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;memory&quot;</span><span class="token punctuation">:</span> <span class="token number">16</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;disk&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;port&quot;</span><span class="token punctuation">:</span> <span class="token number">33066</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;ip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;mysql&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;mysql5.7&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;status&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;运行中&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;creattime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2020-07-02&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;account&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token number">3</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;account&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;account&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;kg-test&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;dsf-eu&quot;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;dsf-na&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>腾讯云mysql</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增id</td></tr> <tr><td>version</td> <td>string</td> <td>所属项目</td></tr> <tr><td>mid</td> <td>string</td> <td>实例ID</td></tr> <tr><td>name</td> <td>string</td> <td>实例名称</td></tr> <tr><td>region</td> <td>string</td> <td>可用区</td></tr> <tr><td>nodenum</td> <td>string</td> <td>节点数</td></tr> <tr><td>cpu</td> <td>int</td> <td>cpu核数</td></tr> <tr><td>memory</td> <td>int</td> <td>内存大小(G)</td></tr> <tr><td>disk</td> <td>int</td> <td>磁盘大小(G)</td></tr> <tr><td>vip</td> <td>string</td> <td>内网地址</td></tr> <tr><td>status</td> <td>string</td> <td>状态</td></tr> <tr><td>mysql</td> <td>string</td> <td>数据库版本</td></tr> <tr><td>creattime</td> <td>date</td> <td>创建日期，格式'yy-mm-dd HH:MM:SS'</td></tr> <tr><td>comment</td> <td>string</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+  <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;wam-cn&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;mid&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;cdb-fmr4q0br&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;gtp-persona-msg&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;region&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;ap-hongkong&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;status&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;运行中&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;nodenum&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;双节点&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;cpu&quot;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;memory&quot;</span><span class="token punctuation">:</span> <span class="token number">4000</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;disk&quot;</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;vip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;172.21.0.2&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;mysql&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;mysql5.7&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;creattime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-04-09T10:57:35Z&quot;</span><span class="token punctuation">,</span>
+      <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+  <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>aws mysql</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增id</td></tr> <tr><td>name</td> <td>string</td> <td>实例名称</td></tr> <tr><td>region</td> <td>string</td> <td>可用区</td></tr> <tr><td>status</td> <td>string</td> <td>状态</td></tr> <tr><td>config</td> <td>string</td> <td>配置</td></tr> <tr><td>disk</td> <td>int</td> <td>存储(G)</td></tr> <tr><td>mysql</td> <td>string</td> <td>数据库版本</td></tr> <tr><td>vip</td> <td>string</td> <td>内网地址</td></tr> <tr><td>port</td> <td>int</td> <td>端口</td></tr> <tr><td>version</td> <td>string</td> <td>所属项目</td></tr> <tr><td>creattime</td> <td>date</td> <td>创建日期，格式'yy-mm-dd HH:MM:SS'</td></tr> <tr><td>comment</td> <td>string</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;wam-cn&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;ksr-db9-old&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;region&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;us-west-1a&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;status&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;运行中&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;config&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;db.m5.large&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;disk&quot;</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;mysql&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;mysql5.6&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;vip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;ksr-db9-old.cwc0ko8emxgl.us-west-1.rds.amazonaws.com&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;port&quot;</span><span class="token punctuation">:</span> <span class="token number">3306</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;creattime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-08-05T15:31:37.152522Z&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="创建自建mysql-刷新云mysql"><a href="#创建自建mysql-刷新云mysql" class="header-anchor">#</a> 创建自建mysql/刷新云mysql</h4> <p>查询方法：post</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>flag</td> <td>int</td> <td>是</td> <td>云平台，请查看公共数据，可选云平台</td></tr> <tr><td>name</td> <td>string</td> <td>是</td> <td>数据库名</td></tr> <tr><td>region</td> <td>string</td> <td>是</td> <td>可用区</td></tr> <tr><td>cpu</td> <td>int</td> <td>是</td> <td>cpu核数</td></tr> <tr><td>memory</td> <td>int</td> <td>是</td> <td>内存大小(G)</td></tr> <tr><td>disk</td> <td>int</td> <td>是</td> <td>磁盘大小(G)</td></tr> <tr><td>port</td> <td>int</td> <td>是</td> <td>端口</td></tr> <tr><td>ip</td> <td>string</td> <td>是</td> <td>内网地址</td></tr> <tr><td>mysql</td> <td>string</td> <td>是</td> <td>数据库版本</td></tr> <tr><td>creattime</td> <td>date</td> <td>否</td> <td>创建日期，格式'yy-mm-dd'，默认为当前日期</td></tr> <tr><td>account</td> <td>int</td> <td>是</td> <td>数据库用户id</td></tr> <tr><td>version</td> <td>int</td> <td>是</td> <td>所属项目id</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment">#创建自建mysql</span>
+<span class="token punctuation">{</span>
+    <span class="token string">&quot;flag&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;test2&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;region&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;广州&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;cpu&quot;</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;memory&quot;</span><span class="token punctuation">:</span> <span class="token number">16</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;disk&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;ip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;port&quot;</span><span class="token punctuation">:</span> <span class="token number">33066</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;mysql&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;mysql5.6&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;account&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;creattime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2020-07-02&quot;</span>
+
+<span class="token punctuation">}</span>
+<span class="token comment">#刷新腾讯云mysql</span>
+<span class="token punctuation">{</span>
+    <span class="token string">&quot;flag&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="修改自建mysql"><a href="#修改自建mysql" class="header-anchor">#</a> 修改自建mysql</h4> <p>查询方法：put</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>是</td> <td>自增id</td></tr> <tr><td>name</td> <td>string</td> <td>是</td> <td>数据库名</td></tr> <tr><td>region</td> <td>string</td> <td>是</td> <td>可用区</td></tr> <tr><td>cpu</td> <td>int</td> <td>是</td> <td>cpu核数</td></tr> <tr><td>memory</td> <td>int</td> <td>是</td> <td>内存大小(G)</td></tr> <tr><td>disk</td> <td>int</td> <td>是</td> <td>磁盘大小(G)</td></tr> <tr><td>port</td> <td>int</td> <td>是</td> <td>端口</td></tr> <tr><td>ip</td> <td>string</td> <td>是</td> <td>内网地址</td></tr> <tr><td>mysql</td> <td>string</td> <td>是</td> <td>数据库版本</td></tr> <tr><td>creattime</td> <td>date</td> <td>是</td> <td>创建日期，格式'yy-mm-dd'</td></tr> <tr><td>account</td> <td>int</td> <td>是</td> <td>数据库用户id</td></tr> <tr><td>version</td> <td>int</td> <td>是</td> <td>所属项目id</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+	<span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;test3&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;region&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;广州&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;cpu&quot;</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;memory&quot;</span><span class="token punctuation">:</span> <span class="token number">16</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;disk&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;ip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;port&quot;</span><span class="token punctuation">:</span> <span class="token number">33066</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;mysql&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;mysql5.6&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;account&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;creattime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2020-07-02&quot;</span>
+
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="删除自建mysql"><a href="#删除自建mysql" class="header-anchor">#</a> 删除自建mysql</h4> <p>请求方法：delete</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>data</td> <td>list</td> <td>是</td> <td>待删除id列表[id1,id2]</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+	<span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">66</span><span class="token punctuation">]</span> <span class="token comment">#单个/批量删除</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="redis"><a href="#redis" class="header-anchor">#</a> Redis</h2> <h3 id="路由-2"><a href="#路由-2" class="header-anchor">#</a> 路由</h3> <p>/db/redis/</p> <h4 id="获取数据库内容-2"><a href="#获取数据库内容-2" class="header-anchor">#</a> 获取数据库内容</h4> <p>查询方法：get</p> <p>请求内容，如：/db/redis/?flag=1</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>flag</td> <td>int</td> <td>是</td> <td>云平台，请查看公共数据，可选云平台</td></tr></tbody></table> <p>响应内容</p> <h5 id="自建redis"><a href="#自建redis" class="header-anchor">#</a> 自建redis</h5> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增id</td></tr> <tr><td>account</td> <td>int</td> <td>数据库用户id</td></tr> <tr><td>version</td> <td>int</td> <td>所属项目id</td></tr> <tr><td>name</td> <td>string</td> <td>redis名</td></tr> <tr><td>region</td> <td>string</td> <td>可用区</td></tr> <tr><td>memory</td> <td>int</td> <td>内存大小(GB)</td></tr> <tr><td>shard</td> <td>int</td> <td>分片数</td></tr> <tr><td>replice</td> <td>int</td> <td>副本数</td></tr> <tr><td>port</td> <td>int</td> <td>端口</td></tr> <tr><td>vip</td> <td>string</td> <td>内网地址</td></tr> <tr><td>rtype</td> <td>string</td> <td>架构版本</td></tr> <tr><td>status</td> <td>string</td> <td>不可修改，默认运行中</td></tr> <tr><td>createtime</td> <td>date</td> <td>创建日期，格式'yy-mm-dd'，默认为当前日期</td></tr> <tr><td>comment</td> <td>string</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;redis&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;kg-redis&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;region&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;广州&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;memory&quot;</span><span class="token punctuation">:</span> <span class="token number">16</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;shard&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;replice&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;rtype&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;主从&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;vip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;port&quot;</span><span class="token punctuation">:</span> <span class="token number">6739</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;status&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;createtime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2020-07-22T16:44:18Z&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token number">9</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;account&quot;</span><span class="token punctuation">:</span> <span class="token number">11</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;account&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">11</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;account&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;redis_query&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">9</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;gtp-hk&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h5 id="腾讯云redis"><a href="#腾讯云redis" class="header-anchor">#</a> 腾讯云redis</h5> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增id</td></tr> <tr><td>version</td> <td>string</td> <td>所属项目</td></tr> <tr><td>rid</td> <td>string</td> <td>实例ID</td></tr> <tr><td>name</td> <td>string</td> <td>实例名称</td></tr> <tr><td>region</td> <td>string</td> <td>可用区</td></tr> <tr><td>memory</td> <td>int</td> <td>内存大小(GB)</td></tr> <tr><td>shard</td> <td>int</td> <td>分片数</td></tr> <tr><td>replice</td> <td>int</td> <td>副本数</td></tr> <tr><td>rtype</td> <td>int</td> <td>架构版本</td></tr> <tr><td>vip</td> <td>string</td> <td>内网地址</td></tr> <tr><td>port</td> <td>string</td> <td>端口</td></tr> <tr><td>status</td> <td>string</td> <td>状态</td></tr> <tr><td>createtime</td> <td>date</td> <td>创建时间，格式'yy-mm-dd HH:MM:SS'</td></tr> <tr><td>comment</td> <td>string</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;gtp-hk&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;rid&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;crs-pf8qatp6&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;gtp-hk-redis_01&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;region&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;ap-hongkong&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;memory&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;shard&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;replice&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;rtype&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;6&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;vip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;172.21.1.4&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;port&quot;</span><span class="token punctuation">:</span> <span class="token number">6379</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;status&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;运行中&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;createtime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-07-22T16:44:18Z&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h5 id="aws-redis"><a href="#aws-redis" class="header-anchor">#</a> aws redis</h5> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增id</td></tr> <tr><td>version</td> <td>string</td> <td>所属项目</td></tr> <tr><td>name</td> <td>string</td> <td>实例名称</td></tr> <tr><td>region</td> <td>string</td> <td>可用区</td></tr> <tr><td>status</td> <td>string</td> <td>状态</td></tr> <tr><td>config</td> <td>string</td> <td>配置</td></tr> <tr><td>engine</td> <td>string</td> <td>引擎版本</td></tr> <tr><td>nodenum</td> <td>int</td> <td>节点数</td></tr> <tr><td>vip</td> <td>string</td> <td>内网地址</td></tr> <tr><td>createtime</td> <td>datetime</td> <td>创建时间，格式'yy-mm-dd HH:MM:SS'</td></tr> <tr><td>comment</td> <td>string</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;ksr&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;ksr-redis10-001&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;region&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;us-west-1a&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;status&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;available&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;config&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;cache.m5.large&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;engine&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;redis2.8.24&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;nodenum&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;vip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;ksr-redis10-001.roinrr.ng.0001.usw1.cache.amazonaws.com:6379&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;creattime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2020-11-27T03:09:54.927000Z&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;cachetype&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> null
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="创建自建redis-刷新云redis"><a href="#创建自建redis-刷新云redis" class="header-anchor">#</a> 创建自建redis/刷新云redis</h4> <p>查询方法：post</p> <p>公共必要请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>flag</td> <td>int</td> <td>是</td> <td>云平台，请查看公共数据，可选云平台</td></tr></tbody></table> <p>创建自建redis</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>name</td> <td>string</td> <td>是</td> <td>数据库名</td></tr> <tr><td>region</td> <td>string</td> <td>是</td> <td>可用区</td></tr> <tr><td>memory</td> <td>int</td> <td>是</td> <td>内存大小(GB)</td></tr> <tr><td>shard</td> <td>int</td> <td>是</td> <td>分片数</td></tr> <tr><td>replice</td> <td>int</td> <td>是</td> <td>副本数</td></tr> <tr><td>rtype</td> <td>string</td> <td>否</td> <td>架构版本</td></tr> <tr><td>vip</td> <td>string</td> <td>是</td> <td>内网地址</td></tr> <tr><td>port</td> <td>int</td> <td>是</td> <td>端口</td></tr> <tr><td>status</td> <td>string</td> <td>否</td> <td>不可修改，默认运行中</td></tr> <tr><td>account</td> <td>int</td> <td>是</td> <td>数据库用户id</td></tr> <tr><td>version</td> <td>int</td> <td>是</td> <td>所属项目id</td></tr> <tr><td>createtime</td> <td>datetime</td> <td>否</td> <td>创建时间，格式'yy-mm-dd HH:MM:SS'，默认为当前时间</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment">#创建自建redis</span>
+<span class="token punctuation">{</span>
+	<span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;kg-redis&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;region&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;广州&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;memory&quot;</span><span class="token punctuation">:</span> <span class="token number">16</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;shard&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;replice&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;rtype&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;主从&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;vip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;port&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;6739&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token number">9</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;account&quot;</span><span class="token punctuation">:</span> <span class="token number">11</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;createtime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2020-07-22T16:44:18Z&quot;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">#刷新腾讯云redis</span>
+<span class="token punctuation">{</span>
+    <span class="token string">&quot;flag&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="修改自建redis"><a href="#修改自建redis" class="header-anchor">#</a> 修改自建redis</h4> <p>查询方法：put</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>是</td> <td>实例id</td></tr> <tr><td>name</td> <td>string</td> <td>是</td> <td>数据库名</td></tr> <tr><td>region</td> <td>string</td> <td>是</td> <td>可用区</td></tr> <tr><td>memory</td> <td>int</td> <td>是</td> <td>内存大小(GB)</td></tr> <tr><td>shard</td> <td>int</td> <td>是</td> <td>分片数</td></tr> <tr><td>replice</td> <td>int</td> <td>是</td> <td>副本数</td></tr> <tr><td>rtype</td> <td>string</td> <td>否</td> <td>架构版本</td></tr> <tr><td>vip</td> <td>string</td> <td>是</td> <td>内网地址</td></tr> <tr><td>port</td> <td>int</td> <td>是</td> <td>端口</td></tr> <tr><td>status</td> <td>string</td> <td>否</td> <td>不可修改，默认运行中</td></tr> <tr><td>account</td> <td>int</td> <td>是</td> <td>数据库用户id</td></tr> <tr><td>version</td> <td>int</td> <td>是</td> <td>所属项目id</td></tr> <tr><td>createtime</td> <td>datetime</td> <td>否</td> <td>创建时间，格式'yy-mm-dd HH:MM:SS'，默认为当前时间</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+	<span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;kg-redis-two&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;region&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;广州&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;memory&quot;</span><span class="token punctuation">:</span> <span class="token number">8</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;shard&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;replice&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;vip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;127.0.0.1&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;port&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;6739&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token number">9</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;account&quot;</span><span class="token punctuation">:</span> <span class="token number">11</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="删除自建redis"><a href="#删除自建redis" class="header-anchor">#</a> 删除自建redis</h4> <p>请求方法：delete</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>data</td> <td>list</td> <td>是</td> <td>待删除id列表[id1,id2]</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+	<span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">66</span><span class="token punctuation">]</span> <span class="token comment">#单个/批量删除</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="memcache"><a href="#memcache" class="header-anchor">#</a> Memcache</h2> <h3 id="路由-3"><a href="#路由-3" class="header-anchor">#</a> 路由</h3> <p>/db/memcache/</p> <h4 id="获取memcache内容"><a href="#获取memcache内容" class="header-anchor">#</a> 获取memcache内容</h4> <p>查询方法：get</p> <p>请求内容，如：/db/memcache/</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>flag</td> <td>int</td> <td>否</td> <td>云平台，请查看公共数据，可选云平台，默认为aws</td></tr></tbody></table> <p>响应内容</p> <p>aws memcache</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增id</td></tr> <tr><td>version</td> <td>string</td> <td>所属项目</td></tr> <tr><td>name</td> <td>string</td> <td>实例名称</td></tr> <tr><td>region</td> <td>string</td> <td>可用区</td></tr> <tr><td>status</td> <td>string</td> <td>状态</td></tr> <tr><td>config</td> <td>string</td> <td>配置</td></tr> <tr><td>engine</td> <td>string</td> <td>引擎版本</td></tr> <tr><td>nodenum</td> <td>int</td> <td>节点数</td></tr> <tr><td>vip</td> <td>string</td> <td>内网地址</td></tr> <tr><td>createtime</td> <td>datetime</td> <td>创建时间，格式'yy-mm-dd HH:MM:SS'</td></tr> <tr><td>comment</td> <td>string</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">21</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;ksr&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;ksr-memcached1&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;region&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;us-west-1a&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;status&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;available&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;config&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;cache.r5.large&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;engine&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;memcached1.4.5&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;nodenum&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;vip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;ksr-memcached1.roinrr.cfg.usw1.cache.amazonaws.com:11211&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;creattime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2019-10-24T07:36:29.686000Z&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;cachetype&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> null
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="刷新云memcache"><a href="#刷新云memcache" class="header-anchor">#</a> 刷新云memcache</h4> <p>查询方法：post</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>flag</td> <td>int</td> <td>否</td> <td>云平台，请查看公共数据，可选云平台，默认为aws</td></tr></tbody></table></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.f15f75cf.js" defer></script><script src="/assets/js/2.9c4860b2.js" defer></script><script src="/assets/js/13.31e0e1ab.js" defer></script>
+  </body>
+</html>

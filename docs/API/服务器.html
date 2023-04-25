@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>服务器</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.f15f75cf.js" as="script"><link rel="preload" href="/assets/js/2.9c4860b2.js" as="script"><link rel="preload" href="/assets/js/15.a57eff10.js" as="script"><link rel="prefetch" href="/assets/js/10.34247447.js"><link rel="prefetch" href="/assets/js/11.5c2f1742.js"><link rel="prefetch" href="/assets/js/12.661aac16.js"><link rel="prefetch" href="/assets/js/13.31e0e1ab.js"><link rel="prefetch" href="/assets/js/14.6d58bf2c.js"><link rel="prefetch" href="/assets/js/16.956d9f8e.js"><link rel="prefetch" href="/assets/js/17.78b7aa1f.js"><link rel="prefetch" href="/assets/js/18.6556e82b.js"><link rel="prefetch" href="/assets/js/19.46482fe5.js"><link rel="prefetch" href="/assets/js/20.88f160e6.js"><link rel="prefetch" href="/assets/js/21.3976a019.js"><link rel="prefetch" href="/assets/js/22.56a27f24.js"><link rel="prefetch" href="/assets/js/23.877cdb78.js"><link rel="prefetch" href="/assets/js/3.f5da0df8.js"><link rel="prefetch" href="/assets/js/4.e7c996f5.js"><link rel="prefetch" href="/assets/js/5.6eff8140.js"><link rel="prefetch" href="/assets/js/6.17d5dd20.js"><link rel="prefetch" href="/assets/js/7.04c5fbb0.js"><link rel="prefetch" href="/assets/js/8.9053e37f.js"><link rel="prefetch" href="/assets/js/9.7582fe86.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="服务器"><a href="#服务器" class="header-anchor">#</a> 服务器</h1> <h2 id="公共数据"><a href="#公共数据" class="header-anchor">#</a> 公共数据</h2> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment">#protocol 登陆协议</span>
+    <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;ssh&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment"># 默认值</span>
+    <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">&quot;rdp&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">&quot;telnet&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">&quot;vnc&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="主机型号"><a href="#主机型号" class="header-anchor">#</a> 主机型号</h2> <h3 id="路由"><a href="#路由" class="header-anchor">#</a> 路由</h3> <p>/hosts/machinetype/</p> <h4 id="获取机器型号内容"><a href="#获取机器型号内容" class="header-anchor">#</a> 获取机器型号内容</h4> <p>查询方法：get</p> <p>响应内容</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增id</td></tr> <tr><td>name</td> <td>string</td> <td>机器型号</td></tr> <tr><td>cpu</td> <td>int</td> <td>cpu核数</td></tr> <tr><td>memory</td> <td>int</td> <td>内存大小(GB)</td></tr> <tr><td>issuer</td> <td>int</td> <td>云商id，AWS = 0，腾讯云 =1 ，华为云 = 2，ucloud=3</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+	<span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>        
+        		<span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;c5.24xlarge&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;cpu&quot;</span><span class="token punctuation">:</span> <span class="token number">96</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;memory&quot;</span><span class="token punctuation">:</span> <span class="token number">192</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;issuer&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="刷新机器型号内容"><a href="#刷新机器型号内容" class="header-anchor">#</a> 刷新机器型号内容</h4> <p>查询方法：post</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>flag</td> <td>int</td> <td>是</td> <td>待刷新云商id</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+  <span class="token string">&quot;flag&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="主机清单"><a href="#主机清单" class="header-anchor">#</a> 主机清单</h2> <h3 id="路由-2"><a href="#路由-2" class="header-anchor">#</a> 路由</h3> <p>/hosts/host/</p> <h4 id="获取服务器内容"><a href="#获取服务器内容" class="header-anchor">#</a> 获取服务器内容</h4> <p>查询方法：get</p> <p>响应内容</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增id</td></tr> <tr><td>name</td> <td>string</td> <td>服务器名</td></tr> <tr><td>pubip</td> <td>string</td> <td>公网IP</td></tr> <tr><td>prvip</td> <td>string</td> <td>内网IP</td></tr> <tr><td>region</td> <td>string</td> <td>地区</td></tr> <tr><td>os</td> <td>string</td> <td>系统</td></tr> <tr><td>netsize</td> <td>int</td> <td>带宽(Mb)</td></tr> <tr><td>cpu</td> <td>int</td> <td>cpu核数</td></tr> <tr><td>memory</td> <td>int</td> <td>内存大小(G)</td></tr> <tr><td>disk</td> <td>dict</td> <td>磁盘信息</td></tr> <tr><td>status</td> <td>string</td> <td>可用性，不可修改，默认值：运行中</td></tr> <tr><td>issuer</td> <td>int</td> <td>云商id</td></tr> <tr><td>version</td> <td>int</td> <td>项目分区id</td></tr> <tr><td>user</td> <td>int</td> <td>管理用户</td></tr> <tr><td>protocol</td> <td>int</td> <td>登陆协议，请查看公共数据中登陆协议</td></tr> <tr><td>port</td> <td>int</td> <td>登陆端口</td></tr> <tr><td>comment</td> <td>string</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;issuer&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;AWS&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;project&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;圣堂之战&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;dsf-eu&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;project&quot;</span><span class="token punctuation">:</span> <span class="token number">3</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;user&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;kg112&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;host&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;disk&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                    <span class="token string">&quot;/dev/sda1&quot;</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+                    <span class="token string">&quot;/dev/mapper/centos_ops--dev-home&quot;</span><span class="token punctuation">:</span> <span class="token number">45</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;gt-ops-dev&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;prvip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;192.168.27.136&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;pubip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;192.168.27.136&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;region&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;广州&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;os&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;CentOS7.8&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;netsize&quot;</span><span class="token punctuation">:</span> <span class="token number">1000</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;cpu&quot;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;memory&quot;</span><span class="token punctuation">:</span> <span class="token number">9837</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;status&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;运行中&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;protocol&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;port&quot;</span><span class="token punctuation">:</span> <span class="token number">61618</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;内网机器&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;issuer&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;user&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="创建主机"><a href="#创建主机" class="header-anchor">#</a> 创建主机</h4> <p>查询方法：post</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>name</td> <td>string</td> <td>是</td> <td>服务器名</td></tr> <tr><td>pubip</td> <td>string</td> <td>是</td> <td>公网IP</td></tr> <tr><td>prvip</td> <td>string</td> <td>是</td> <td>内网IP</td></tr> <tr><td>region</td> <td>string</td> <td>是</td> <td>可用区</td></tr> <tr><td>os</td> <td>string</td> <td>否</td> <td>系统</td></tr> <tr><td>netsize</td> <td>int</td> <td>是</td> <td>带宽(Mb)，默认值centos7.10</td></tr> <tr><td>cpu</td> <td>int</td> <td>是</td> <td>cpu核数</td></tr> <tr><td>memory</td> <td>int</td> <td>是</td> <td>内存大小(G)</td></tr> <tr><td>disk</td> <td>dict</td> <td>否</td> <td>磁盘信息</td></tr> <tr><td>issuer</td> <td>int</td> <td>是</td> <td>云商id</td></tr> <tr><td>version</td> <td>int</td> <td>是</td> <td>项目分区id</td></tr> <tr><td>user</td> <td>int</td> <td>是</td> <td>管理用户</td></tr> <tr><td>protocol</td> <td>int</td> <td>否</td> <td>登陆协议，请查看公共数据中登陆协议</td></tr> <tr><td>port</td> <td>int</td> <td>否</td> <td>登陆端口</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+	<span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;gt-ops-dev&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;prvip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;192.168.27.136&quot;</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;pubip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;192.168.27.136&quot;</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;region&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;广州&quot;</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;os&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;CentOS7.8&quot;</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;netsize&quot;</span><span class="token punctuation">:</span> <span class="token number">1000</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;cpu&quot;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;memory&quot;</span><span class="token punctuation">:</span> <span class="token number">9837</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;disk&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">&quot;/dev/sda1&quot;</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token string">&quot;/dev/mapper/centos_ops--dev-home&quot;</span><span class="token punctuation">:</span> <span class="token number">45</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;status&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;运行中&quot;</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;issuer&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;user&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;protocol&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;port&quot;</span><span class="token punctuation">:</span> <span class="token number">61618</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;内网机器&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="修改主机"><a href="#修改主机" class="header-anchor">#</a> 修改主机</h4> <p>查询方法：put</p> <p>请求参数</p> <table><thead><tr><th>name</th> <th>string</th> <th>是</th> <th>服务器名</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>是</td> <td>自增id</td></tr> <tr><td>pubip</td> <td>string</td> <td>是</td> <td>公网IP</td></tr> <tr><td>prvip</td> <td>string</td> <td>是</td> <td>内网IP</td></tr> <tr><td>region</td> <td>string</td> <td>是</td> <td>可用区</td></tr> <tr><td>os</td> <td>string</td> <td>否</td> <td>系统</td></tr> <tr><td>netsize</td> <td>int</td> <td>是</td> <td>带宽(Mb)，默认值centos7.10</td></tr> <tr><td>cpu</td> <td>int</td> <td>是</td> <td>cpu核数</td></tr> <tr><td>memory</td> <td>int</td> <td>是</td> <td>内存大小(G)</td></tr> <tr><td>disk</td> <td>dict</td> <td>否</td> <td>磁盘信息</td></tr> <tr><td>issuer</td> <td>int</td> <td>是</td> <td>云商id</td></tr> <tr><td>version</td> <td>int</td> <td>是</td> <td>项目分区id</td></tr> <tr><td>user</td> <td>int</td> <td>是</td> <td>管理用户</td></tr> <tr><td>protocol</td> <td>int</td> <td>否</td> <td>登陆协议，请查看公共数据中登陆协议</td></tr> <tr><td>port</td> <td>int</td> <td>否</td> <td>登陆端口</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td></td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;gt-ops-dev&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;prvip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;192.168.27.136&quot;</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;pubip&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;192.168.27.136&quot;</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;region&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;广州&quot;</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;os&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;CentOS7.8&quot;</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;netsize&quot;</span><span class="token punctuation">:</span> <span class="token number">1000</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;cpu&quot;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;memory&quot;</span><span class="token punctuation">:</span> <span class="token number">9837</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;disk&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token string">&quot;/dev/sda1&quot;</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token string">&quot;/dev/mapper/centos_ops--dev-home&quot;</span><span class="token punctuation">:</span> <span class="token number">45</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;status&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;运行中&quot;</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;issuer&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;user&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;protocol&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;port&quot;</span><span class="token punctuation">:</span> <span class="token number">61618</span><span class="token punctuation">,</span> 
+	<span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;内网机器&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="删除主机"><a href="#删除主机" class="header-anchor">#</a> 删除主机</h4> <p>请求方法：delete</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>data</td> <td>list</td> <td>是</td> <td>待删除id列表[id1,id2]</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+	<span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">66</span><span class="token punctuation">]</span> <span class="token comment">#单个/批量删除</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="刷新主机内容"><a href="#刷新主机内容" class="header-anchor">#</a> 刷新主机内容</h4> <h4 id="路由-3"><a href="#路由-3" class="header-anchor">#</a> 路由</h4> <p>/hosts/fresh/</p> <p>查询方法：post</p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.f15f75cf.js" defer></script><script src="/assets/js/2.9c4860b2.js" defer></script><script src="/assets/js/15.a57eff10.js" defer></script>
+  </body>
+</html>

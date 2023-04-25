@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>运维工单</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.f15f75cf.js" as="script"><link rel="preload" href="/assets/js/2.9c4860b2.js" as="script"><link rel="preload" href="/assets/js/20.88f160e6.js" as="script"><link rel="prefetch" href="/assets/js/10.34247447.js"><link rel="prefetch" href="/assets/js/11.5c2f1742.js"><link rel="prefetch" href="/assets/js/12.661aac16.js"><link rel="prefetch" href="/assets/js/13.31e0e1ab.js"><link rel="prefetch" href="/assets/js/14.6d58bf2c.js"><link rel="prefetch" href="/assets/js/15.a57eff10.js"><link rel="prefetch" href="/assets/js/16.956d9f8e.js"><link rel="prefetch" href="/assets/js/17.78b7aa1f.js"><link rel="prefetch" href="/assets/js/18.6556e82b.js"><link rel="prefetch" href="/assets/js/19.46482fe5.js"><link rel="prefetch" href="/assets/js/21.3976a019.js"><link rel="prefetch" href="/assets/js/22.56a27f24.js"><link rel="prefetch" href="/assets/js/23.877cdb78.js"><link rel="prefetch" href="/assets/js/3.f5da0df8.js"><link rel="prefetch" href="/assets/js/4.e7c996f5.js"><link rel="prefetch" href="/assets/js/5.6eff8140.js"><link rel="prefetch" href="/assets/js/6.17d5dd20.js"><link rel="prefetch" href="/assets/js/7.04c5fbb0.js"><link rel="prefetch" href="/assets/js/8.9053e37f.js"><link rel="prefetch" href="/assets/js/9.7582fe86.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="运维工单"><a href="#运维工单" class="header-anchor">#</a> 运维工单</h1> <h2 id="值班"><a href="#值班" class="header-anchor">#</a> 值班</h2> <h3 id="值班表"><a href="#值班表" class="header-anchor">#</a> 值班表</h3> <h4 id="公共内容"><a href="#公共内容" class="header-anchor">#</a> 公共内容</h4> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment">#dtype类型含义</span>
+Ops_Duty_Type <span class="token operator">=</span> <span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;主要&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">&quot;备用&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">&quot;紧急&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+</code></pre></div><h4 id="路由"><a href="#路由" class="header-anchor">#</a> 路由</h4> <p>/duty/duty/</p> <h5 id="获取值班表内容"><a href="#获取值班表内容" class="header-anchor">#</a> 获取值班表内容</h5> <p>查询方法：get</p> <p>如/duty/duty/?start=2021-08-17&amp;end=2021-08-20&amp;depart=1</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增id</td></tr> <tr><td>depart</td> <td>int</td> <td>部门id</td></tr> <tr><td>user</td> <td>int</td> <td>值班用户id</td></tr> <tr><td>name</td> <td>string</td> <td>值班人员名称</td></tr> <tr><td>start</td> <td>int</td> <td>开始小时，目前无用，默认展示为全天即可，大小0~22</td></tr> <tr><td>end</td> <td>int</td> <td>结束小时，目前无用，默认展示为全天即可，大小1~23</td></tr> <tr><td>nowdate</td> <td>date</td> <td>值班日期</td></tr> <tr><td>dtype</td> <td>int</td> <td>值班类型</td></tr></tbody></table> <p>响应内容：</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;depart&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;运维部&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;user&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">13</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;realName&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;李海彬&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;depart&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;duty&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">465</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;李海彬&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;depart&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;start&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;end&quot;</span><span class="token punctuation">:</span> <span class="token number">23</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;nowdate&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-08-18&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;dtype&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;user&quot;</span><span class="token punctuation">:</span> <span class="token number">13</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">466</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;邓汝泉&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;depart&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;start&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;end&quot;</span><span class="token punctuation">:</span> <span class="token number">23</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;nowdate&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-08-18&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;dtype&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;user&quot;</span><span class="token punctuation">:</span> <span class="token number">11</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">463</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;邓汝泉&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;depart&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;start&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;end&quot;</span><span class="token punctuation">:</span> <span class="token number">23</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;nowdate&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-08-17&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;dtype&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;user&quot;</span><span class="token punctuation">:</span> <span class="token number">11</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">464</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;欧阳柯&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;depart&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;start&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;end&quot;</span><span class="token punctuation">:</span> <span class="token number">23</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;nowdate&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-08-17&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;dtype&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;user&quot;</span><span class="token punctuation">:</span> <span class="token number">12</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h5 id="自动排班"><a href="#自动排班" class="header-anchor">#</a> 自动排班</h5> <p>请求方法：post，返回200后，请调用get查看最新内容</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>depart</td> <td>int</td> <td>是</td> <td>排班部门id</td></tr></tbody></table> <h5 id="修改值班内容"><a href="#修改值班内容" class="header-anchor">#</a> 修改值班内容</h5> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>是</td> <td>自增id</td></tr> <tr><td>user</td> <td>int</td> <td>是</td> <td>用户id</td></tr> <tr><td>start</td> <td>int</td> <td>是</td> <td>开始小时，大小0~22</td></tr> <tr><td>end</td> <td>int</td> <td>是</td> <td>结束小时，大小1~23</td></tr> <tr><td>nowdate</td> <td>date</td> <td>是</td> <td>值班日期</td></tr> <tr><td>dtype</td> <td>int</td> <td>是</td> <td>值班类型</td></tr></tbody></table> <h3 id="运维值班统计"><a href="#运维值班统计" class="header-anchor">#</a> 运维值班统计</h3> <h4 id="路由-2"><a href="#路由-2" class="header-anchor">#</a> 路由</h4> <p>/duty/groupby/</p> <h5 id="获取值班统计内容"><a href="#获取值班统计内容" class="header-anchor">#</a> 获取值班统计内容</h5> <p>查询方法：get</p> <p>注意：值班统计中，不传递部门时，默认统计所有部门，没有传递时间时，默认统计当月</p> <p>如/duty/groupby/?start=2021-08-17&amp;end=2021-08-20&amp;depart=1</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>start</td> <td>date</td> <td>开始时间，格式yy-mm-dd</td></tr> <tr><td>end</td> <td>date</td> <td>结束时间，格式yy-mm-dd</td></tr> <tr><td>depart</td> <td>int</td> <td>部门id</td></tr></tbody></table> <p>响应内容</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>cnt</td> <td>int</td> <td>值班天数</td></tr> <tr><td>user__realName</td> <td>string</td> <td>值班人员名称</td></tr> <tr><td>user__depart__id</td> <td>int</td> <td>部门id</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;depart&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;运维部&quot;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;基础开发部&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+               <span class="token string">&quot;dutycnt&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;user__realName&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;李海彬&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;user__depart__id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;cnt&quot;</span><span class="token punctuation">:</span> <span class="token number">7</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;user__realName&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;林志强&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;user__depart__id&quot;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;cnt&quot;</span><span class="token punctuation">:</span> <span class="token number">28</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;user__realName&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;梁健辉&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;user__depart__id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;cnt&quot;</span><span class="token punctuation">:</span> <span class="token number">7</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;user__realName&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;欧阳柯&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;user__depart__id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;cnt&quot;</span><span class="token punctuation">:</span> <span class="token number">9</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;user__realName&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;邓汝泉&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;user__depart__id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;cnt&quot;</span><span class="token punctuation">:</span> <span class="token number">7</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+  
+</code></pre></div><h2 id="故障管理"><a href="#故障管理" class="header-anchor">#</a> 故障管理</h2> <h3 id="故障类型"><a href="#故障类型" class="header-anchor">#</a> 故障类型</h3> <h4 id="路由-3"><a href="#路由-3" class="header-anchor">#</a> 路由</h4> <p>/fault/ftype/</p> <h4 id="获取故障类型内容"><a href="#获取故障类型内容" class="header-anchor">#</a> 获取故障类型内容</h4> <p>查询方法：get</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增id</td></tr> <tr><td>name</td> <td>string</td> <td>故障类型名称</td></tr> <tr><td>comment</td> <td>string</td> <td>备注</td></tr></tbody></table> <h4 id="创建故障类型"><a href="#创建故障类型" class="header-anchor">#</a> 创建故障类型</h4> <p>请求方法：post</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>name</td> <td>string</td> <td>是</td> <td>故障类型名称</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+	<span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;云厂商故障&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;第三方&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="修改故障类型"><a href="#修改故障类型" class="header-anchor">#</a> 修改故障类型</h4> <p>请求方法：put</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>是</td> <td>故障类型id</td></tr> <tr><td>name</td> <td>string</td> <td>是</td> <td>故障类型名称</td></tr> <tr><td>comment</td> <td>string</td> <td>否</td> <td>备注</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+	<span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;人为故障&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="删除故障类型"><a href="#删除故障类型" class="header-anchor">#</a> 删除故障类型</h4> <p>请求方法：delete</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>备注</th></tr></thead> <tbody><tr><td>data</td> <td>list</td> <td>是</td> <td>待删除项目列表[id1, id2]</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+  <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>id1<span class="token punctuation">,</span> id2<span class="token punctuation">]</span> <span class="token comment">#单个/批量删除</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="故障清单"><a href="#故障清单" class="header-anchor">#</a> 故障清单</h3> <h4 id="路由-4"><a href="#路由-4" class="header-anchor">#</a> 路由</h4> <p>/fault/fault/</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token comment">#故障等级 flevel</span>
+Fault_Level_Choices <span class="token operator">=</span> <span class="token punctuation">(</span>
+    <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token string">&quot;告警&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">&quot;一般告警&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">&quot;严重&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">&quot;灾难&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+</code></pre></div><h4 id="获取故障清单内容"><a href="#获取故障清单内容" class="header-anchor">#</a> 获取故障清单内容</h4> <p>查询方法：get</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>自增id</td></tr> <tr><td>name</td> <td>string</td> <td>故障标题</td></tr> <tr><td>version</td> <td>int</td> <td>所属分区</td></tr> <tr><td>flevel</td> <td>int</td> <td>故障等级</td></tr> <tr><td>ftype</td> <td>int</td> <td>故障类型</td></tr> <tr><td>issuer</td> <td>int</td> <td>所属IDC</td></tr> <tr><td>depart</td> <td>int</td> <td>故障归属</td></tr> <tr><td>area</td> <td>string</td> <td>影响范围</td></tr> <tr><td>studio</td> <td>string</td> <td>所属项目组</td></tr> <tr><td>loss</td> <td>string</td> <td>损失</td></tr> <tr><td>begtime</td> <td>datetime</td> <td>开始时间，格式&quot;yy-mm-dd HH:MM:SS&quot;</td></tr> <tr><td>endtime</td> <td>datetime</td> <td>结束时间，格式&quot;yy-mm-dd HH:MM:SS&quot;</td></tr> <tr><td>user</td> <td>int</td> <td>处理人</td></tr> <tr><td>uptime</td> <td>datetime</td> <td>更新时间，格式&quot;yy-mm-dd HH:MM:SS&quot;</td></tr> <tr><td>comment</td> <td>string</td> <td>故障描述</td></tr> <tr><td>url</td> <td>string</td> <td>详细地址</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">12</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;snd-cn&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;ftype&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;硬件故障&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;issuer&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;AWS&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;depart&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;运维部&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;user&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;username&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;kg388&quot;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;fault&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span>
+                <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;test4&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;flevel&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;area&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;所有玩家&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;studio&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;尘生工作室&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;loss&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;$10&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;begtime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-06-30T03:17:09.695218Z&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;endtime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-06-30T03:17:09.695218Z&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;uptime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-08-12T02:36:55.787972Z&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;url&quot;</span><span class="token punctuation">:</span> null<span class="token punctuation">,</span>
+                <span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;ftype&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;issuer&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;depart&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;user&quot;</span><span class="token punctuation">:</span> <span class="token number">6</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="创建故障清单"><a href="#创建故障清单" class="header-anchor">#</a> 创建故障清单</h4> <p>请求方法：post</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>name</td> <td>string</td> <td>是</td> <td>故障标题，唯一</td></tr> <tr><td>version</td> <td>int</td> <td>是</td> <td>所属分区</td></tr> <tr><td>flevel</td> <td>int</td> <td>是</td> <td>故障等级</td></tr> <tr><td>ftype</td> <td>int</td> <td>是</td> <td>故障类型</td></tr> <tr><td>issuer</td> <td>int</td> <td>是</td> <td>所属IDC</td></tr> <tr><td>depart</td> <td>int</td> <td>是</td> <td>故障归属</td></tr> <tr><td>user</td> <td>int</td> <td>是</td> <td>处理人</td></tr> <tr><td>area</td> <td>string</td> <td>是</td> <td>影响范围</td></tr> <tr><td>studio</td> <td>string</td> <td>是</td> <td>所属项目组</td></tr> <tr><td>loss</td> <td>string</td> <td>是</td> <td>损失</td></tr> <tr><td>comment</td> <td>string</td> <td>是</td> <td>故障描述</td></tr> <tr><td>url</td> <td>string</td> <td>否</td> <td>详细地址</td></tr> <tr><td>begtime</td> <td>datetime</td> <td>是</td> <td>开始时间，格式&quot;yy-mm-dd HH:MM:SS&quot;</td></tr> <tr><td>endtime</td> <td>datetime</td> <td>是</td> <td>结束时间，格式&quot;yy-mm-dd HH:MM:SS&quot;</td></tr> <tr><td>uptime</td> <td>datetime</td> <td>否</td> <td>更新时间，格式&quot;yy-mm-dd HH:MM:SS&quot;</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;test3&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;flevel&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;ftype&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;issuer&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;depart&quot;</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;area&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;所有玩家&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;studio&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;尘生工作室&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;loss&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;$10&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;begtime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-06-30 03:17:09.695218&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;endtime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-06-30 03:17:09.695218&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;user&quot;</span><span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;uptime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-08-15T02:36:55.787972Z&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;kg&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="修改故障清单"><a href="#修改故障清单" class="header-anchor">#</a> 修改故障清单</h4> <p>请求方法：put</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>id</td> <td>int</td> <td>是</td> <td>故障清单id</td></tr> <tr><td>name</td> <td>string</td> <td>是</td> <td>故障标题，唯一</td></tr> <tr><td>version</td> <td>int</td> <td>是</td> <td>所属分区</td></tr> <tr><td>flevel</td> <td>int</td> <td>是</td> <td>故障等级</td></tr> <tr><td>ftype</td> <td>int</td> <td>是</td> <td>故障类型</td></tr> <tr><td>issuer</td> <td>int</td> <td>是</td> <td>所属IDC</td></tr> <tr><td>depart</td> <td>int</td> <td>是</td> <td>故障归属</td></tr> <tr><td>user</td> <td>int</td> <td>是</td> <td>处理人</td></tr> <tr><td>area</td> <td>string</td> <td>是</td> <td>影响范围</td></tr> <tr><td>studio</td> <td>string</td> <td>是</td> <td>所属项目组</td></tr> <tr><td>loss</td> <td>string</td> <td>是</td> <td>损失</td></tr> <tr><td>comment</td> <td>string</td> <td>是</td> <td>故障描述</td></tr> <tr><td>url</td> <td>string</td> <td>否</td> <td>详细地址</td></tr> <tr><td>begtime</td> <td>datetime</td> <td>是</td> <td>开始时间，格式&quot;yy-mm-dd HH:MM:SS&quot;</td></tr> <tr><td>endtime</td> <td>datetime</td> <td>是</td> <td>结束时间，格式&quot;yy-mm-dd HH:MM:SS&quot;</td></tr> <tr><td>uptime</td> <td>datetime</td> <td>否</td> <td>更新时间，格式&quot;yy-mm-dd HH:MM:SS&quot;</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;id&quot;</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;test4&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;version&quot;</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;flevel&quot;</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;ftype&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;issuer&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;depart&quot;</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;area&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;所有玩家&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;studio&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;尘生工作室&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;loss&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;$10&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;begtime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-06-30 03:17:09.695218&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;endtime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-06-30 03:17:09.695218&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;user&quot;</span><span class="token punctuation">:</span> <span class="token number">6</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;uptime&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;2021-08-15T02:36:55.787972Z&quot;</span><span class="token punctuation">,</span>
+	<span class="token string">&quot;comment&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;kg&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h4 id="删除故障清单"><a href="#删除故障清单" class="header-anchor">#</a> 删除故障清单</h4> <p>请求方法：delete</p> <p>请求参数</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>是否必要</th> <th>备注</th></tr></thead> <tbody><tr><td>data</td> <td>list</td> <td>是</td> <td>待删除项目列表[id1, id2]</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+  <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>id1<span class="token punctuation">,</span> id2<span class="token punctuation">]</span> <span class="token comment">#单个/批量删除</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="故障统计"><a href="#故障统计" class="header-anchor">#</a> 故障统计</h3> <h4 id="路由-5"><a href="#路由-5" class="header-anchor">#</a> 路由</h4> <p>/fault/groupby/</p> <h5 id="获取故障统计内容"><a href="#获取故障统计内容" class="header-anchor">#</a> 获取故障统计内容</h5> <p>查询方法：get</p> <p>注意：统计中，不传递部门时，默认统计所有部门，没有传递时间时，默认统计当月</p> <p>如/fault/groupby/?gbkey=flevel&amp;start=2021-05-20&amp;end=2021-06-01</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>start</td> <td>date</td> <td>开始时间，格式yy-mm-dd</td></tr> <tr><td>end</td> <td>date</td> <td>结束时间，格式yy-mm-dd</td></tr> <tr><td>gbkey</td> <td>string</td> <td>归类字段名称，请查看故障get请求</td></tr> <tr><td>ftype</td> <td>string</td> <td>故障类型</td></tr> <tr><td>depart</td> <td>string</td> <td>故障归属</td></tr> <tr><td>flevel</td> <td>string</td> <td>故障等级</td></tr> <tr><td>issuer</td> <td>string</td> <td>所属IDC</td></tr> <tr><td>studio</td> <td>string</td> <td>所属项目组</td></tr> <tr><td>user</td> <td>string</td> <td>处理人</td></tr></tbody></table> <p>响应内容</p> <table><thead><tr><th>字段名称</th> <th>字段类型</th> <th>含义</th></tr></thead> <tbody><tr><td>cnt</td> <td>int</td> <td>次数</td></tr> <tr><td>seconds</td> <td>string</td> <td>秒数字符串</td></tr> <tr><td>ftype__name</td> <td>string</td> <td>故障类型</td></tr> <tr><td>depart__name</td> <td>string</td> <td>故障归属</td></tr> <tr><td>flevel</td> <td>string</td> <td>故障等级</td></tr> <tr><td>issuer__name</td> <td>string</td> <td>所属IDC</td></tr> <tr><td>studio</td> <td>string</td> <td>所属项目组</td></tr> <tr><td>user__realName</td> <td>string</td> <td>处理人</td></tr></tbody></table> <div class="language-python extra-class"><pre class="language-python"><code><span class="token punctuation">{</span>
+    <span class="token string">&quot;data&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">&quot;user__realName&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;李海彬&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;cnt&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;seconds&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;342000.0&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token string">&quot;user__realName&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;梁健辉&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;cnt&quot;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;seconds&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;60.0&quot;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;code&quot;</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;message&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;OK&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.f15f75cf.js" defer></script><script src="/assets/js/2.9c4860b2.js" defer></script><script src="/assets/js/20.88f160e6.js" defer></script>
+  </body>
+</html>
