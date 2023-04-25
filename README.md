@@ -7,14 +7,14 @@ A github chart repository demo
 
 1、添加chart仓库
 ```
-# helm repo add myrepo https://yupengzhangL.github.io/myhelm-chart
+# helm repo add myrepo https://yupengzhangl.github.io/myhelm_chart/
 ```
 
 2、添加成功
 ```
 # helm repo list
 NAME	URL                                   
-myrepo	https://yupengzhangL.github.io/myhelm-chart
+myrepo	https://yupengzhangl.github.io/myhelm_chart/
 ```
 
 3、搜索chart包
