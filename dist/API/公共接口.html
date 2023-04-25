@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>op系统接口文档 | OP管理系统接口文档</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="OP管理系统前后端对接文档">
+    
+    <link rel="preload" href="./assets/css/0.styles.a9fd3415.css" as="style"><link rel="preload" href="./assets/js/app.24ee9d8f.js" as="script"><link rel="preload" href="./assets/js/2.721445ff.js" as="script"><link rel="preload" href="./assets/js/8.adae9189.js" as="script"><link rel="prefetch" href="./assets/js/10.5eb3051e.js"><link rel="prefetch" href="./assets/js/3.38c362df.js"><link rel="prefetch" href="./assets/js/4.fd890c47.js"><link rel="prefetch" href="./assets/js/5.eeba83b0.js"><link rel="prefetch" href="./assets/js/6.b6208d96.js"><link rel="prefetch" href="./assets/js/7.e5463407.js"><link rel="prefetch" href="./assets/js/9.2db37c00.js">
+    <link rel="stylesheet" href="./assets/css/0.styles.a9fd3415.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/./" class="home-link router-link-active"><!----> <span class="site-name">OP管理系统接口文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/./API/" class="nav-link router-link-active">
+  API
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/./API/" class="nav-link router-link-active">
+  API
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/./API/公共接口.html" class="active sidebar-link">op系统接口文档</a></li><li><a href="/./API/菜单.html" class="sidebar-link">菜单</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="op系统接口文档"><a href="#op系统接口文档" class="header-anchor">#</a> op系统接口文档</h1> <h2 id="公共部分"><a href="#公共部分" class="header-anchor">#</a> 公共部分</h2> <h3 id="域名"><a href="#域名" class="header-anchor">#</a> 域名</h3> <h4 id="正式域名-https-gt-opsite-goatgames-com"><a href="#正式域名-https-gt-opsite-goatgames-com" class="header-anchor">#</a> 正式域名：https://gt-opsite.goatgames.com</h4> <h4 id="测试域名-http-kg-opsite-goatgames-com-8009"><a href="#测试域名-http-kg-opsite-goatgames-com-8009" class="header-anchor">#</a> 测试域名：http://kg-opsite.goatgames.com:8009</h4> <h3 id="http方法含义"><a href="#http方法含义" class="header-anchor">#</a> http方法含义</h3> <table><thead><tr><th>http方法</th> <th>动作含义</th></tr></thead> <tbody><tr><td>get</td> <td>查看/下载</td></tr> <tr><td>post</td> <td>创建/上传/执行</td></tr> <tr><td>put</td> <td>更新</td></tr> <tr><td>delete</td> <td>删除</td></tr></tbody></table> <h3 id="数据交互格式"><a href="#数据交互格式" class="header-anchor">#</a> 数据交互格式</h3> <h4 id="前端请求"><a href="#前端请求" class="header-anchor">#</a> 前端请求</h4> <table><thead><tr><th>类型</th> <th>格式</th></tr></thead> <tbody><tr><td>非文件</td> <td>raw json</td></tr> <tr><td>文件</td> <td>form-data</td></tr></tbody></table> <h4 id="后端响应"><a href="#后端响应" class="header-anchor">#</a> 后端响应</h4> <p>{
+code: int,
+message: string,
+data: list, #[{}, {}, ]
+}</p> <table><thead><tr><th>字段</th> <th>类型</th> <th>是否必要</th> <th>含义</th></tr></thead> <tbody><tr><td>code</td> <td>int</td> <td>是</td> <td>http状态码+自定义状态码</td></tr> <tr><td>message</td> <td>string</td> <td>是</td> <td>提示消息</td></tr> <tr><td>data</td> <td>list</td> <td>是</td> <td>返回json列表内容，[{}, {}]</td></tr></tbody></table> <h5 id="code-状态码"><a href="#code-状态码" class="header-anchor">#</a> code：状态码</h5> <table><thead><tr><th>code值</th> <th>含义</th></tr></thead> <tbody><tr><td>200</td> <td>成功</td></tr> <tr><td>405</td> <td>请求方法错误</td></tr> <tr><td>598</td> <td>用户名或密码错误</td></tr> <tr><td>599</td> <td>服务端数据出错</td></tr></tbody></table></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/./API/菜单.html">
+        菜单
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="./assets/js/app.24ee9d8f.js" defer></script><script src="./assets/js/2.721445ff.js" defer></script><script src="./assets/js/8.adae9189.js" defer></script>
+  </body>
+</html>
